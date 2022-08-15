@@ -16,3 +16,5 @@ const story = {
 };
 
 export default story;
+
+//anders als wir das gemacht haben
