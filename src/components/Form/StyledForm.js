@@ -7,7 +7,7 @@ import StyledButton from '../Button/StyledButton';
 import StyledDiaryHeadline from '../Headline/StyledDiaryHeadline';
 import StyledHeadline2 from '../Headline/StyledHeadline2';
 
-const StyledTextArea = styled.input`
+const StyledInput = styled.input`
 	display: flex;
 	width: 400px;
 	height: 100px;
@@ -24,18 +24,14 @@ const StyledLabel = styled.label`
 
 const StyledEntry = styled.a`
 	display: flex;
+	flex-direction: column-reverse;
 	width: 400px;
-	height: 100px;
 	border: 1px solid black;
 	border-radius: 5px;
 `;
 
 const StyledLi = styled.ul`
 	list-style-type: none;
-`;
-
-const Wrapper = styled.div`
-	border: 1px solid red;
 `;
 
 export default function StyledForm() {
@@ -64,7 +60,7 @@ export default function StyledForm() {
 				autoComplete="off"
 			>
 				<StyledLabel htmlFor="GratitudeDiary">Form for GratitudeDiary </StyledLabel>
-				<StyledTextArea
+				<StyledInput
 					aria-label="Form for GratitudeDiary"
 					id="GratitudeJournal1"
 					name="GratitudeDiary1"
@@ -77,7 +73,7 @@ export default function StyledForm() {
 						setInputValue(event.target.value);
 					}}
 				/>
-				<StyledTextArea
+				<StyledInput
 					aria-label="Form for GratitudeDiary"
 					id="GratitudeJournal2"
 					name="GratitudeDiary2"
@@ -90,7 +86,7 @@ export default function StyledForm() {
 						setInputValue1(event.target.value);
 					}}
 				/>
-				<StyledTextArea
+				<StyledInput
 					aria-label="Form for GratitudeDiary"
 					id="GratitudeJournal3"
 					name="GratitudeDiary3"
@@ -106,39 +102,17 @@ export default function StyledForm() {
 				<StyledButton type="submit">Add to my diary</StyledButton>
 			</form>
 			<StyledDiaryHeadline />
-			<Wrapper>
-				{entries.map(() => {
-					return (
-						<StyledEntry key={nanoid}>
-							{entries.map(entry => {
-								return (
-									<StyledLi key={nanoid}>
-										<li key={entry.id}>{entry.name}</li>
-									</StyledLi>
-								);
-							})}
-						</StyledEntry>
-					);
-				})}
-			</Wrapper>
+			<>
+				<StyledEntry key={nanoid}>
+					{entries.map(entry => {
+						return (
+							<StyledLi key={nanoid}>
+								<li key={entry.id}>{entry.name}</li>
+							</StyledLi>
+						);
+					})}
+				</StyledEntry>
+			</>
 		</>
 	);
 }
-
-/*
-<StyledUl>
-{entries.map((entry1, entry2, entry) => {
-	return (
-		<StyledEntry key={nanoid}>
-			hallo
-			<li key={entry.id} id="GratitudeJournal1">
-				{entry1.name}
-			</li>
-			<li key={entry.id} id="GratitudeJournal2">
-				{entry.name}
-			</li>
-			<li key={entry2.id}>{entry.name}</li>
-		</StyledEntry>
-	);
-})}
-</StyledUl>*/
