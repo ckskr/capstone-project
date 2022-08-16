@@ -8,14 +8,8 @@ const StyledTextArea = styled.input`
 	display: flex;
 	width: 400px;
 	height: 100px;
-	margin: 20px 50px;
+	margin: 30px 0;
 	padding: 10px;
-`;
-
-const StyledButtonWrapper = styled.div`
-	display: flex;
-	justify-content: left;
-	width: 100%;
 `;
 
 const StyledLabel = styled.label`
@@ -67,9 +61,7 @@ export default function StyledForm() {
 						setTextArea(event.target.value);
 					}}
 				/>
-				<StyledButtonWrapper>
-					<StyledButton type="submit">Add to my diary</StyledButton>
-				</StyledButtonWrapper>
+				<StyledButton type="submit">Add to my diary</StyledButton>
 			</form>
 		</>
 	);

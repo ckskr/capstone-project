@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {pxToRem} from '../../utils/unit';
 
 const StyledH1 = styled.h1`
-	color: #006d77;
+	color: var(--turq);
 	font-size: ${pxToRem(20)};
 `;
 

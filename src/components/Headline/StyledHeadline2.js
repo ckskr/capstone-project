@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import {pxToRem} from '../../utils/unit';
 
 const StyledH2 = styled.h2`
-	color: #e29578;
+	color: var(--salmon);
 	font-size: ${pxToRem(30)};
 `;
 
 const StyledH3 = styled.h3`
-	color: #e29578;
+	color: var(--salmon);
 	font-size: ${pxToRem(15)};
 `;
 
