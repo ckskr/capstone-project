@@ -22,16 +22,12 @@ const StyledLabel = styled.label`
 	display: none;
 `;
 
-const StyledEntry = styled.a`
+const StyledEntry = styled.ul`
 	display: flex;
 	flex-direction: column-reverse;
 	width: 400px;
 	border: 1px solid black;
 	border-radius: 5px;
-`;
-
-const StyledLi = styled.ul`
-	list-style-type: none;
 `;
 
 export default function StyledForm() {
@@ -41,8 +37,6 @@ export default function StyledForm() {
 
 	const entries = useStore(state => state.entries);
 	const addEntry = useStore(state => state.addEntry);
-	const addEntry1 = useStore(state => state.addEntry);
-	const addEntry2 = useStore(state => state.addEntry);
 
 	return (
 		<>
@@ -50,9 +44,15 @@ export default function StyledForm() {
 			<form
 				onSubmit={event => {
 					event.preventDefault();
-					addEntry(inputValue);
-					addEntry1(inputValue1);
-					addEntry2(inputValue2);
+					const object = {
+						key: nanoid(),
+						inputValue: inputValue,
+						inputValue1: inputValue1,
+						inputValue2: inputValue2,
+					};
+
+					addEntry(object);
+
 					setInputValue('');
 					setInputValue1('');
 					setInputValue2('');
@@ -103,15 +103,17 @@ export default function StyledForm() {
 			</form>
 			<StyledDiaryHeadline />
 			<>
-				<StyledEntry key={nanoid}>
+				<div key={nanoid}>
 					{entries.map(entry => {
 						return (
-							<StyledLi key={nanoid}>
+							<StyledEntry key={nanoid}>
 								<li key={entry.id}>{entry.name}</li>
-							</StyledLi>
+								<li key={entry.id}>{entry.name}</li>
+								<li key={entry.id}>{entry.name}</li>
+							</StyledEntry>
 						);
 					})}
-				</StyledEntry>
+				</div>
 			</>
 		</>
 	);

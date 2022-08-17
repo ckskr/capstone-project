@@ -1,4 +1,3 @@
-import {nanoid} from 'nanoid';
 import create from 'zustand';
 
 const useStore = create(set => {
@@ -6,7 +5,7 @@ const useStore = create(set => {
 		entries: [],
 		addEntry: name => {
 			set(state => {
-				return {entries: [...state.entries, {name, id: nanoid()}]};
+				return {entries: [...state.entries, {name}]};
 			});
 		},
 	};
