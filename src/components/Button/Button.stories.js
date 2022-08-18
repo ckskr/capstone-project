@@ -1,7 +1,7 @@
-import Button from './';
+import StyledButton from './StyledButton';
 
 function Template({children, ...args}) {
-	return <Button {...args}>{children}</Button>;
+	return <StyledButton {...args}>{children}</StyledButton>;
 }
 
 export const Default = Template.bind({});
@@ -12,9 +12,7 @@ Default.args = {
 
 const story = {
 	title: 'Button',
-	component: Button,
+	component: StyledButton,
 };
 
 export default story;
-
-//anders als wir das gemacht haben

@@ -1,4 +1,4 @@
-import StyledButton from './styled';
+import StyledButton from './StyledButton';
 
 /**
  *
