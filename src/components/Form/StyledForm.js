@@ -23,7 +23,7 @@ const StyledLabel = styled.label`
 	display: none;
 `;
 
-const StyledUl = styled.ul`
+const StyledWrapper = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
 	width: 400px;
@@ -40,7 +40,7 @@ const StyledLi = styled.li`
 	gap: 50px;
 `;
 
-const StyledCard = styled.a`
+const StyledCard = styled.p`
 	display: flex;
 	flex-direction: column-reverse;
 	width: 800px;
@@ -118,22 +118,22 @@ export default function StyledForm() {
 				<StyledButton type="submit">Add to diary</StyledButton>
 			</form>
 			<StyledDiaryHeadline />
-			<StyledUl>
+			<StyledWrapper>
 				{entries.map(entry => {
 					return (
-						<StyledCard key={nanoid}>
+						<StyledCard key={entry.id}>
 							<Date />
 							<StyledH4>You were grateful for:</StyledH4>
 
-							<>
+							<ul>
 								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
 								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
 								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
-							</>
+							</ul>
 						</StyledCard>
 					);
 				})}
-			</StyledUl>
+			</StyledWrapper>
 		</>
 	);
 }
