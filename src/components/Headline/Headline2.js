@@ -12,7 +12,7 @@ const StyledH3 = styled.h3`
 	font-size: ${pxToRem(15)};
 `;
 
-export default function StyledHeadline2() {
+export default function Headline2() {
 	return (
 		<>
 			<StyledH2>What are you grateful for today?</StyledH2>

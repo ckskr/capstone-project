@@ -4,8 +4,8 @@ import {useState} from 'react';
 import styled from 'styled-components';
 
 import StyledButton from '../Button/StyledButton';
-import StyledDiaryHeadline from '../Headline/StyledDiaryHeadline';
-import StyledHeadline2 from '../Headline/StyledHeadline2';
+import DiaryHeadline from '../Headline/DiaryHeadline';
+import Headline2 from '../Headline/Headline2';
 
 const StyledInput = styled.textarea`
 	display: flex;
@@ -65,7 +65,7 @@ function Date({datum}) {
 	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
 }
 
-export default function StyledForm() {
+export default function Form() {
 	const [entries, setEntries] = useState([]);
 
 	function handleSubmit(event) {
@@ -79,7 +79,7 @@ export default function StyledForm() {
 	}
 	return (
 		<>
-			<StyledHeadline2 />
+			<Headline2 />
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
 				<StyledInput
@@ -117,7 +117,7 @@ export default function StyledForm() {
 
 				<StyledButton type="submit">Add to diary</StyledButton>
 			</form>
-			<StyledDiaryHeadline />
+			<DiaryHeadline />
 			<StyledWrapper>
 				{entries.map(entry => {
 					return (

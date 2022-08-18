@@ -13,7 +13,7 @@ const StyledP = styled.p`
 	font-size: ${pxToRem(15)};
 `;
 
-export default function StyledDiaryHeadline() {
+export default function DiaryHeadline() {
 	return (
 		<>
 			<StyledP>Your diary</StyledP>

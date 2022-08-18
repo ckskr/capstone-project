@@ -16,5 +16,3 @@ export default function Button({children, type = 'button', ...props}) {
 }
 
 Button.propTypes = {};
-
-//nicht irritieren lassen, Styled so machen wie wir das gelernt haben!

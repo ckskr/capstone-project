@@ -1,11 +1,11 @@
-import StyledForm from '../components/Form/StyledForm';
-import StyledHeadline1 from '../components/Headline/StyledHeadline1';
+import Form from '../components/Form/Form';
+import Headline1 from '../components/Headline/Headline1';
 
 export default function HomePage() {
 	return (
 		<>
-			<StyledHeadline1></StyledHeadline1>
-			<StyledForm></StyledForm>
+			<Headline1 />
+			<Form />
 		</>
 	);
 }
