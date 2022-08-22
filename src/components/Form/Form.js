@@ -129,6 +129,43 @@ export default function Form() {
 								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
 								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
 								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
+								<div key={entry.id}>
+									{entry.edit ? (
+										<input
+											type="text"
+											value={entry.id}
+											onChange={event => {
+												setEntries(
+													entries.map(newEntry => {
+														return newEntry.name === entry.id
+															? {
+																	...newEntry,
+																	name: event.target.value,
+															  }
+															: newEntry;
+													})
+												);
+											}}
+										/>
+									) : (
+										''
+									)}
+
+									<button
+										type="button"
+										onClick={() => {
+											setEntries(
+												entries.map(newEntry => {
+													return newEntry.id === entry.id
+														? {...newEntry, edit: !newEntry.edit}
+														: newEntry;
+												})
+											);
+										}}
+									>
+										{entry.edit ? 'save' : 'edit'}
+									</button>
+								</div>
 							</ul>
 						</StyledCard>
 					);
