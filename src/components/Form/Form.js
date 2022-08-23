@@ -7,6 +7,106 @@ import StyledButton from '../Button/StyledButton';
 import DiaryHeadline from '../Headline/DiaryHeadline';
 import Headline2 from '../Headline/Headline2';
 
+console.clear();
+
+function Date({datum}) {
+	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
+}
+export default function FormExport() {
+	return (
+		<>
+			<Form />
+			<Entry></Entry>
+		</>
+	);
+}
+
+function Form() {
+	const [entries, setEntries] = useState([]);
+	/*const [firstEntry, setFirstEntry] = useState([]);
+	const [secondEntry, setSecondEntry] = useState([]);
+	const [thirdEntry, setThirdEntry] = useState([]);*/
+
+	function handleSubmit(event) {
+		event.preventDefault();
+
+		const formData = new FormData(event.target);
+		const data = Object.fromEntries(formData);
+
+		setEntries([...entries, {data, id: nanoid()}]);
+		event.target.reset();
+		console.log(entries);
+	}
+
+	return (
+		<>
+			<Headline2 />
+			<form onSubmit={handleSubmit} autoComplete="off">
+				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
+				<StyledInput
+					type="text"
+					id="firstEntry"
+					name="firstEntry"
+					aria-label="Form for GratitudeDiary"
+					placeholder="Name a thing you are grateful for today"
+					required
+					minLength="3"
+					maxLength="200"
+				/>
+				<StyledLabel htmlFor="secondEntry">secondEntry </StyledLabel>
+				<StyledInput
+					type="text"
+					id="secondEntry"
+					name="secondEntry"
+					aria-label="Form for GratitudeDiary"
+					placeholder="Surely there was another great thing happening today"
+					required
+					minLength="3"
+					maxLength="200"
+				/>
+				<StyledLabel htmlFor="thirdEntry">thirdEntry </StyledLabel>
+				<StyledInput
+					type="text"
+					id="thirdEntry"
+					name="thirdEntry"
+					aria-label="Form for GratitudeDiary"
+					placeholder="Think harder about a last thing that you are grateful for"
+					required
+					minLength="3"
+					maxLength="200"
+				/>
+
+				<StyledButton type="submit">Add to diary</StyledButton>
+			</form>
+		</>
+	);
+}
+
+function Entry({entries}) {
+	return (
+		<>
+			<DiaryHeadline />
+			<StyledWrapper>
+				{entries.map(entry => {
+					return (
+						<StyledCard key={entry.id}>
+							<Date />
+							<StyledH4>You were grateful for:</StyledH4>
+
+							<ul>
+								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
+								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
+								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
+							</ul>
+						</StyledCard>
+					);
+				})}
+			</StyledWrapper>
+		</>
+	);
+}
+
+/* --------------------Styling --------------------------------*/
 const StyledInput = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
@@ -60,110 +160,3 @@ const StyledDate = styled.div`
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
-
-function Date({datum}) {
-	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
-}
-
-export default function Form() {
-	const [entries, setEntries] = useState([]);
-
-	function handleSubmit(event) {
-		event.preventDefault();
-
-		const formData = new FormData(event.target);
-		const data = Object.fromEntries(formData);
-
-		setEntries([...entries, {...data, id: nanoid()}]);
-		event.target.reset();
-	}
-
-	function edit(id) {
-		console.log(id);
-	}
-	return (
-		<>
-			<Headline2 />
-			<form onSubmit={handleSubmit} autoComplete="off">
-				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
-				<StyledInput
-					type="text"
-					id="firstEntry"
-					name="firstEntry"
-					aria-label="Form for GratitudeDiary"
-					placeholder="Name a thing you are grateful for today"
-					required
-					minLength="3"
-					maxLength="200"
-				/>
-				<StyledLabel htmlFor="secondEntry">secondEntry </StyledLabel>
-				<StyledInput
-					type="text"
-					id="secondEntry"
-					name="secondEntry"
-					aria-label="Form for GratitudeDiary"
-					placeholder="Surely there was another great thing happening today"
-					required
-					minLength="3"
-					maxLength="200"
-				/>
-				<StyledLabel htmlFor="thirdEntry">thirdEntry </StyledLabel>
-				<StyledInput
-					type="text"
-					id="thirdEntry"
-					name="thirdEntry"
-					aria-label="Form for GratitudeDiary"
-					placeholder="Think harder about a last thing that you are grateful for"
-					required
-					minLength="3"
-					maxLength="200"
-				/>
-
-				<StyledButton type="submit">Add to diary</StyledButton>
-			</form>
-			<DiaryHeadline />
-			<StyledWrapper>
-				{entries.map(entry => {
-					return (
-						<StyledCard key={entry.id}>
-							<Date />
-							<StyledH4>You were grateful for:</StyledH4>
-
-							<ul>
-								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
-								<div key={entry.id}>
-									{entry.edit ? (
-										<input
-											type="text"
-											value={entry.data}
-											onChange={event => {
-												setEntries(
-													entries.map(newEntry => {
-														return newEntry.firstEntry === entry.id
-															? {
-																	...newEntry,
-																	data: event.target.value,
-															  }
-															: newEntry;
-													})
-												);
-											}}
-										/>
-									) : (
-										''
-									)}
-
-									<button type="button" onClick={() => edit(entry.id)}>
-										{entry.edit ? 'save' : 'edit'}
-									</button>
-								</div>
-							</ul>
-						</StyledCard>
-					);
-				})}
-			</StyledWrapper>
-		</>
-	);
-}
