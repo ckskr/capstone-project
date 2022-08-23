@@ -77,6 +77,10 @@ export default function Form() {
 		setEntries([...entries, {...data, id: nanoid()}]);
 		event.target.reset();
 	}
+
+	function edit(id) {
+		console.log(id);
+	}
 	return (
 		<>
 			<Headline2 />
@@ -133,14 +137,14 @@ export default function Form() {
 									{entry.edit ? (
 										<input
 											type="text"
-											value={entry.id}
+											value={entry.data}
 											onChange={event => {
 												setEntries(
 													entries.map(newEntry => {
-														return newEntry.name === entry.id
+														return newEntry.firstEntry === entry.id
 															? {
 																	...newEntry,
-																	name: event.target.value,
+																	data: event.target.value,
 															  }
 															: newEntry;
 													})
@@ -151,18 +155,7 @@ export default function Form() {
 										''
 									)}
 
-									<button
-										type="button"
-										onClick={() => {
-											setEntries(
-												entries.map(newEntry => {
-													return newEntry.id === entry.id
-														? {...newEntry, edit: !newEntry.edit}
-														: newEntry;
-												})
-											);
-										}}
-									>
+									<button type="button" onClick={() => edit(entry.id)}>
 										{entry.edit ? 'save' : 'edit'}
 									</button>
 								</div>
