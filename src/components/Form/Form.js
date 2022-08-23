@@ -13,29 +13,35 @@ function Date({datum}) {
 	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
 }
 export default function FormExport() {
+	const [entries, setEntries] = useState([]);
+
+	function addEntry(firstEntry, secondEntry, thirdEntry) {
+		setEntries([
+			...entries,
+			{
+				firstEntry,
+				secondEntry,
+				thirdEntry,
+				id: nanoid(),
+			},
+		]);
+	}
 	return (
 		<>
-			<Form />
-			<Entry></Entry>
+			<Form onAddEntry={addEntry} />
+			<Diary entries={entries} />
 		</>
 	);
 }
 
-function Form() {
-	const [entries, setEntries] = useState([]);
-	/*const [firstEntry, setFirstEntry] = useState([]);
-	const [secondEntry, setSecondEntry] = useState([]);
-	const [thirdEntry, setThirdEntry] = useState([]);*/
-
+function Form({onAddEntry}) {
 	function handleSubmit(event) {
 		event.preventDefault();
 
 		const formData = new FormData(event.target);
-		const data = Object.fromEntries(formData);
-
-		setEntries([...entries, {data, id: nanoid()}]);
+		const {firstEntry, secondEntry, thirdEntry} = Object.fromEntries(formData);
+		onAddEntry(firstEntry, secondEntry, thirdEntry);
 		event.target.reset();
-		console.log(entries);
 	}
 
 	return (
@@ -82,7 +88,7 @@ function Form() {
 	);
 }
 
-function Entry({entries}) {
+function Diary({entries}) {
 	return (
 		<>
 			<DiaryHeadline />
@@ -94,9 +100,9 @@ function Entry({entries}) {
 							<StyledH4>You were grateful for:</StyledH4>
 
 							<ul>
-								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
+								<StyledLi>{entry.firstEntry}</StyledLi>
+								<StyledLi>{entry.secondEntry}</StyledLi>
+								<StyledLi>{entry.thirdEntry}</StyledLi>
 							</ul>
 						</StyledCard>
 					);
@@ -140,7 +146,7 @@ const StyledLi = styled.li`
 	gap: 50px;
 `;
 
-const StyledCard = styled.p`
+const StyledCard = styled.section`
 	display: flex;
 	flex-direction: column-reverse;
 	width: 800px;
