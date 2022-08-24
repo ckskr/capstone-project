@@ -1,16 +1,22 @@
 import dayjs from 'dayjs';
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import Footer from '../components/Footer/Footer';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
+import useStore from '../Hooks/useStore';
 
 function Date({datum}) {
 	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
 }
 
-export default function Diary({entries}) {
+export default function Diary() {
+	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
+		ssr: false,
+	});
+	const entries = useStore(state => state.entries);
 	return (
-		<>
+		<DynamicWrapper>
 			<DiaryHeadline />
 			<StyledWrapper>
 				{entries &&
@@ -21,16 +27,16 @@ export default function Diary({entries}) {
 								<StyledH4>You were grateful for:</StyledH4>
 
 								<ul>
-									<StyledLi>{entry.firstEntry}</StyledLi>
-									<StyledLi>{entry.secondEntry}</StyledLi>
-									<StyledLi>{entry.thirdEntry}</StyledLi>
+									<StyledLi>{entry.first}</StyledLi>
+									<StyledLi>{entry.second}</StyledLi>
+									<StyledLi>{entry.third}</StyledLi>
 								</ul>
 							</StyledCard>
 						);
 					})}
 			</StyledWrapper>
 			<Footer />
-		</>
+		</DynamicWrapper>
 	);
 }
 

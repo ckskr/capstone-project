@@ -1,47 +1,34 @@
 import {nanoid} from 'nanoid';
+import dynamic from 'next/dynamic';
 import {useRouter} from 'next/router';
-import {useState} from 'react';
 import styled from 'styled-components';
 
+import useStore from '../../Hooks/useStore';
 import StyledButton from '../Button/StyledButton';
 import Headline2 from '../Headline/Headline2';
 
 console.clear();
 
-export default function FormExport() {
-	const [entries, setEntries] = useState([]);
-
-	function addEntry(firstEntry, secondEntry, thirdEntry) {
-		setEntries([
-			...entries,
-			{
-				firstEntry,
-				secondEntry,
-				thirdEntry,
-				id: nanoid(),
-			},
-		]);
-	}
-	return (
-		<>
-			<Form onAddEntry={addEntry} />
-		</>
-	);
-}
-
-function Form({onAddEntry}) {
+export default function Form() {
+	const addEntry = useStore(state => state.addEntry);
 	const router = useRouter();
+
 	function handleSubmit(event) {
 		event.preventDefault();
 
 		const formData = new FormData(event.target);
 		const {firstEntry, secondEntry, thirdEntry} = Object.fromEntries(formData);
-		onAddEntry(firstEntry, secondEntry, thirdEntry);
-		event.target.reset();
-	}
 
+		event.target.reset();
+		const entry = {id: nanoid(), first: firstEntry, second: secondEntry, third: thirdEntry};
+		addEntry(entry);
+		console.log(entry);
+	}
+	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
+		ssr: false,
+	});
 	return (
-		<>
+		<DynamicWrapper>
 			<Headline2 />
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
@@ -80,14 +67,14 @@ function Form({onAddEntry}) {
 
 				<StyledButton
 					type="submit"
-					onClick={() => {
+					onSubmit={() => {
 						router.push('./diary');
 					}}
 				>
 					Add to diary
 				</StyledButton>
 			</form>
-		</>
+		</DynamicWrapper>
 	);
 }
 
