@@ -1,4 +1,5 @@
 import {nanoid} from 'nanoid';
+import {useRouter} from 'next/router';
 import {useState} from 'react';
 import styled from 'styled-components';
 
@@ -29,6 +30,7 @@ export default function FormExport() {
 }
 
 function Form({onAddEntry}) {
+	const router = useRouter();
 	function handleSubmit(event) {
 		event.preventDefault();
 
@@ -76,7 +78,14 @@ function Form({onAddEntry}) {
 					maxLength="200"
 				/>
 
-				<StyledButton type="submit">Add to diary</StyledButton>
+				<StyledButton
+					type="submit"
+					onClick={() => {
+						router.push('./diary');
+					}}
+				>
+					Add to diary
+				</StyledButton>
 			</form>
 		</>
 	);
