@@ -8,9 +8,8 @@ const StyledH2 = styled.h2`
 `;
 
 const StyledP = styled.p`
-	margin-top: 100px;
 	color: var(--turq);
-	font-size: ${pxToRem(15)};
+	font-size: ${pxToRem(20)};
 `;
 
 export default function DiaryHeadline() {

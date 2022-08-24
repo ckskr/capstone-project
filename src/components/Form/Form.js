@@ -23,6 +23,8 @@ export default function Form() {
 		const entry = {id: nanoid(), first: firstEntry, second: secondEntry, third: thirdEntry};
 		addEntry(entry);
 		console.log(entry);
+
+		router.push('./diary');
 	}
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
@@ -65,14 +67,7 @@ export default function Form() {
 					maxLength="200"
 				/>
 
-				<StyledButton
-					type="submit"
-					onSubmit={() => {
-						router.push('./diary');
-					}}
-				>
-					Add to diary
-				</StyledButton>
+				<StyledButton type="submit">Add to diary</StyledButton>
 			</form>
 		</DynamicWrapper>
 	);

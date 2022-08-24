@@ -45,24 +45,20 @@ export default function Diary() {
 const StyledWrapper = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
-	width: 400px;
-	margin-bottom: 20px;
-	border-radius: 5px;
+	padding: 10px;
 	gap: 10px;
 `;
 
 const StyledLi = styled.li`
 	display: flex;
 	flex-direction: column;
-	margin: 0 15px 10px 15px;
 	color: var(--turq_light);
-	gap: 50px;
 `;
 
 const StyledCard = styled.section`
 	display: flex;
 	flex-direction: column-reverse;
-	width: 800px;
+	width: 93vw;
 	border: 1px solid var(--turq_light);
 	border-radius: 5px;
 `;
