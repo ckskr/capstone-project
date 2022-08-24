@@ -1,7 +1,40 @@
 import dayjs from 'dayjs';
 import styled from 'styled-components';
 
+import Footer from '../components/Footer/Footer';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
+
+function Date({datum}) {
+	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
+}
+
+export default function Diary({entries}) {
+	return (
+		<>
+			<DiaryHeadline />
+			<StyledWrapper>
+				{entries &&
+					entries.map(entry => {
+						return (
+							<StyledCard key={entry.id}>
+								<Date />
+								<StyledH4>You were grateful for:</StyledH4>
+
+								<ul>
+									<StyledLi>{entry.firstEntry}</StyledLi>
+									<StyledLi>{entry.secondEntry}</StyledLi>
+									<StyledLi>{entry.thirdEntry}</StyledLi>
+								</ul>
+							</StyledCard>
+						);
+					})}
+			</StyledWrapper>
+			<Footer />
+		</>
+	);
+}
+
+/* --------------------Styling --------------------------------*/
 
 const StyledWrapper = styled.div`
 	display: flex;
@@ -20,7 +53,7 @@ const StyledLi = styled.li`
 	gap: 50px;
 `;
 
-const StyledCard = styled.p`
+const StyledCard = styled.section`
 	display: flex;
 	flex-direction: column-reverse;
 	width: 800px;
@@ -40,31 +73,3 @@ const StyledDate = styled.div`
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
-
-function Date({datum}) {
-	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
-}
-
-export default function DiaryEntry({entries}) {
-	return (
-		<>
-			<DiaryHeadline />
-			<StyledWrapper>
-				{entries.map(entry => {
-					return (
-						<StyledCard key={entry.id}>
-							<Date />
-							<StyledH4>You were grateful for:</StyledH4>
-
-							<ul>
-								<StyledLi key={entry.id}>{entry.firstEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.secondEntry}</StyledLi>
-								<StyledLi key={entry.id}>{entry.thirdEntry}</StyledLi>
-							</ul>
-						</StyledCard>
-					);
-				})}
-			</StyledWrapper>
-		</>
-	);
-}
