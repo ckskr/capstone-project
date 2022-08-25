@@ -23,7 +23,7 @@ export default function Form() {
 
 		router.push('./diary');
 	}
-	const DynamicWrapper = dynamic(() => import('../StyledWrapper'), {
+	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
 	});
 	return (

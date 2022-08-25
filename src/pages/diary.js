@@ -11,7 +11,7 @@ function Date({datum}) {
 }
 
 export default function Diary() {
-	const DynamicWrapper = dynamic(() => import('../components/StyledWrapper'), {
+	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
 	const entries = useStore(state => state.entries);
