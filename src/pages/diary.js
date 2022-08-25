@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
-import Footer from '../components/Footer/Footer';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
+import Navigation from '../components/Navigation/Navigation';
 import useStore from '../Hooks/useStore';
 
 function Date({datum}) {
@@ -11,14 +11,14 @@ function Date({datum}) {
 }
 
 export default function Diary() {
-	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
+	const DynamicWrapper = dynamic(() => import('../components/StyledWrapper'), {
 		ssr: false,
 	});
 	const entries = useStore(state => state.entries);
 	return (
 		<DynamicWrapper>
 			<DiaryHeadline />
-			<StyledWrapper>
+			<StyledDiv>
 				{entries &&
 					entries.map(entry => {
 						return (
@@ -34,15 +34,15 @@ export default function Diary() {
 							</StyledCard>
 						);
 					})}
-			</StyledWrapper>
-			<Footer />
+			</StyledDiv>
+			<Navigation />
 		</DynamicWrapper>
 	);
 }
 
 /* --------------------Styling --------------------------------*/
 
-const StyledWrapper = styled.div`
+const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
 	padding: 10px;

@@ -7,8 +7,6 @@ import useStore from '../../Hooks/useStore';
 import StyledButton from '../Button/StyledButton';
 import Headline2 from '../Headline/Headline2';
 
-console.clear();
-
 export default function Form() {
 	const addEntry = useStore(state => state.addEntry);
 	const router = useRouter();
@@ -22,11 +20,10 @@ export default function Form() {
 		event.target.reset();
 		const entry = {id: nanoid(), first: firstEntry, second: secondEntry, third: thirdEntry};
 		addEntry(entry);
-		console.log(entry);
 
 		router.push('./diary');
 	}
-	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
+	const DynamicWrapper = dynamic(() => import('../StyledWrapper'), {
 		ssr: false,
 	});
 	return (
@@ -34,7 +31,7 @@ export default function Form() {
 			<Headline2 />
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
-				<StyledInput
+				<StyledTextarea
 					type="text"
 					id="firstEntry"
 					name="firstEntry"
@@ -45,7 +42,7 @@ export default function Form() {
 					maxLength="200"
 				/>
 				<StyledLabel htmlFor="secondEntry">secondEntry </StyledLabel>
-				<StyledInput
+				<StyledTextarea
 					type="text"
 					id="secondEntry"
 					name="secondEntry"
@@ -56,7 +53,7 @@ export default function Form() {
 					maxLength="200"
 				/>
 				<StyledLabel htmlFor="thirdEntry">thirdEntry </StyledLabel>
-				<StyledInput
+				<StyledTextarea
 					type="text"
 					id="thirdEntry"
 					name="thirdEntry"
@@ -73,7 +70,7 @@ export default function Form() {
 	);
 }
 
-const StyledInput = styled.textarea`
+const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
 	width: 350px;

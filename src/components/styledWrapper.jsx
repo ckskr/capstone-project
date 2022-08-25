@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-const styledWrapper = styled.div`
+const StyledWrapper = styled.div`
 	width: 100vw;
 	height: 100vh;
 `;
 
-export default styledWrapper;
+export default StyledWrapper;

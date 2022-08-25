@@ -2,21 +2,21 @@ import Link from 'next/link';
 import {useRouter} from 'next/router';
 import styled from 'styled-components';
 
-export default function Footer() {
+export default function Navigation() {
 	const router = useRouter();
 	return (
-		<StyledFooter>
+		<StyledNavigation>
 			<Link href="./">
 				<StyledLink active={router.pathname === '/'}>Daily entry</StyledLink>
 			</Link>
 			<Link href="./diary">
 				<StyledLink active={router.pathname === '/diary'}>My Diary</StyledLink>
 			</Link>
-		</StyledFooter>
+		</StyledNavigation>
 	);
 }
 
-const StyledFooter = styled.footer`
+const StyledNavigation = styled.nav`
 	display: flex;
 	position: fixed;
 	right: 0;
@@ -28,9 +28,8 @@ const StyledFooter = styled.footer`
 `;
 
 const StyledLink = styled.a`
-	color: var(--rose);
-	color: ${({active = true}) => (active ? 'var(--turq)' : 'var(--salmon)')};
-	font-weight: ${({active = true}) => (active ? '1000' : '500')};
+	color: ${({active}) => (active ? 'var(--turq)' : 'var(--salmon)')};
+	font-weight: ${({active}) => (active ? '1000' : '500')};
 
 	&:hover {
 		font-weight: 1000;
