@@ -64,7 +64,9 @@ export default function Form() {
 					maxLength="200"
 				/>
 
-				<StyledButton type="submit">Add to diary</StyledButton>
+				<StyledButton variant="default" type="submit">
+					Add to diary
+				</StyledButton>
 			</form>
 		</DynamicWrapper>
 	);

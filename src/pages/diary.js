@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
+import StyledButton from '../components/Button/StyledButton';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import useStore from '../Hooks/useStore';
@@ -11,6 +12,7 @@ function Date({datum}) {
 }
 
 export default function Diary() {
+	const deleteEntry = useStore(state => state.deleteEntry);
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
@@ -31,6 +33,15 @@ export default function Diary() {
 									<StyledLi>{entry.second}</StyledLi>
 									<StyledLi>{entry.third}</StyledLi>
 								</ul>
+								<StyledButton
+									variant="delete"
+									type="button"
+									onClick={() => {
+										deleteEntry(entry.id);
+									}}
+								>
+									Delete entry
+								</StyledButton>
 							</StyledCard>
 						);
 					})}
@@ -57,6 +68,7 @@ const StyledLi = styled.li`
 
 const StyledCard = styled.section`
 	display: flex;
+	position: relative;
 	flex-direction: column-reverse;
 	width: 93vw;
 	border: 1px solid var(--turq_light);

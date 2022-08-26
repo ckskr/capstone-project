@@ -7,5 +7,11 @@ const useStore = create(set => ({
 			return {entries: [...state.entries, entry]};
 		});
 	},
+
+	deleteEntry: id => {
+		set(state => {
+			return {entries: state.entries.filter(entry => entry.id !== id)};
+		});
+	},
 }));
 export default useStore;
