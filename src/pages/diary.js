@@ -11,6 +11,7 @@ function Date({datum}) {
 }
 
 export default function Diary() {
+	const deleteEntry = useStore(state => state.deleteEntry);
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
@@ -31,6 +32,12 @@ export default function Diary() {
 									<StyledLi>{entry.second}</StyledLi>
 									<StyledLi>{entry.third}</StyledLi>
 								</ul>
+								<button
+									type="button"
+									onClick={() => {
+										deleteEntry(entry.id);
+									}}
+								></button>
 							</StyledCard>
 						);
 					})}
