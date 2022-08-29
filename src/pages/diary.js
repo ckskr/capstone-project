@@ -27,11 +27,6 @@ export default function Diary() {
 								<StyledFeeling>That is how you felt:</StyledFeeling>
 								<ul>
 									<StyledLi>{entry.radio1}</StyledLi>
-									<StyledLi>{entry.radio2}</StyledLi>
-									<StyledLi>{entry.radio3}</StyledLi>
-									<StyledLi>{entry.radio4}</StyledLi>
-									<StyledLi>{entry.radio5}</StyledLi>
-									<StyledLi>{entry.radio6}</StyledLi>
 								</ul>
 								<StyledH4>You were grateful for:</StyledH4>
 								<ul>
@@ -59,7 +54,7 @@ export default function Diary() {
 /* --------------------Styling --------------------------------*/
 const StyledDiv = styled.div`
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	padding: 10px;
 	gap: 10px;
 `;
@@ -71,25 +66,22 @@ const StyledLi = styled.li`
 const StyledCard = styled.section`
 	display: flex;
 	position: relative;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	width: 93vw;
 	border: 1px solid var(--turq_light);
 	border-radius: 5px;
 `;
 const StyledH4 = styled.h4`
 	display: flex;
-	order: 1;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
 const StyledFeeling = styled.h4`
 	display: flex;
-	order: 2;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
 const StyledDate = styled.div`
-	order: 10;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
