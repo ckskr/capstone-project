@@ -33,6 +33,7 @@ export default function Form() {
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
 	});
+
 	return (
 		<DynamicWrapper>
 			<form onSubmit={handleSubmit} autoComplete="off">

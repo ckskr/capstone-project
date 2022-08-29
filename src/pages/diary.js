@@ -6,14 +6,15 @@ import StyledButton from '../components/Button/StyledButton';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import useStore from '../Hooks/useStore';
-function Date({datum}) {
-	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
-}
+
 export default function Diary() {
 	const deleteEntry = useStore(state => state.deleteEntry);
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
+	function Date({datum}) {
+		return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
+	}
 	const entries = useStore(state => state.entries);
 	return (
 		<DynamicWrapper>
@@ -57,6 +58,7 @@ const StyledDiv = styled.div`
 	flex-direction: column-reverse;
 	padding: 10px;
 	gap: 10px;
+	padding-bottom: 100px;
 `;
 const StyledLi = styled.li`
 	display: flex;
