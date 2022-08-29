@@ -55,11 +55,13 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		height: 100vw;
 		margin: 0;
 		padding: 10px;
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
 		font-style: "normal";
+
 	}
 
 :root {

@@ -6,11 +6,9 @@ import StyledButton from '../components/Button/StyledButton';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import useStore from '../Hooks/useStore';
-
 function Date({datum}) {
 	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
 }
-
 export default function Diary() {
 	const deleteEntry = useStore(state => state.deleteEntry);
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
@@ -26,8 +24,16 @@ export default function Diary() {
 						return (
 							<StyledCard key={entry.id}>
 								<Date />
+								<StyledFeeling>That is how you felt:</StyledFeeling>
+								<ul>
+									<StyledLi>{entry.radio1}</StyledLi>
+									<StyledLi>{entry.radio2}</StyledLi>
+									<StyledLi>{entry.radio3}</StyledLi>
+									<StyledLi>{entry.radio4}</StyledLi>
+									<StyledLi>{entry.radio5}</StyledLi>
+									<StyledLi>{entry.radio6}</StyledLi>
+								</ul>
 								<StyledH4>You were grateful for:</StyledH4>
-
 								<ul>
 									<StyledLi>{entry.first}</StyledLi>
 									<StyledLi>{entry.second}</StyledLi>
@@ -50,22 +56,18 @@ export default function Diary() {
 		</DynamicWrapper>
 	);
 }
-
 /* --------------------Styling --------------------------------*/
-
 const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
 	padding: 10px;
 	gap: 10px;
 `;
-
 const StyledLi = styled.li`
 	display: flex;
 	flex-direction: column;
 	color: var(--turq_light);
 `;
-
 const StyledCard = styled.section`
 	display: flex;
 	position: relative;
@@ -74,16 +76,20 @@ const StyledCard = styled.section`
 	border: 1px solid var(--turq_light);
 	border-radius: 5px;
 `;
-
 const StyledH4 = styled.h4`
 	display: flex;
 	order: 1;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
-
-const StyledDate = styled.div`
+const StyledFeeling = styled.h4`
+	display: flex;
 	order: 2;
+	margin-left: 15px;
+	color: var(--turq_light);
+`;
+const StyledDate = styled.div`
+	order: 10;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
