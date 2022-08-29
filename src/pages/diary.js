@@ -54,7 +54,7 @@ export default function Diary() {
 /* --------------------Styling --------------------------------*/
 const StyledDiv = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	padding: 10px;
 	gap: 10px;
 `;
