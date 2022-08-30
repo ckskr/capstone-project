@@ -31,6 +31,7 @@ export default function Diary() {
 									<StyledLi>{entry.second}</StyledLi>
 									<StyledLi>{entry.third}</StyledLi>
 								</ul>
+
 								<StyledButton
 									variant="delete"
 									type="button"
