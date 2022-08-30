@@ -33,30 +33,32 @@ export default function Form() {
 		<DynamicWrapper>
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<Styledh2>How did you feel today?</Styledh2>
-				<StyledDiv>
-					<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
-					<StyledRadioLabel> Happy</StyledRadioLabel>
-				</StyledDiv>
-				<StyledDiv>
-					<StyledInput type="radio" value="proud" id="mood2" name="mood" required />
-					<StyledRadioLabel> Proud</StyledRadioLabel>
-				</StyledDiv>
-				<StyledDiv>
-					<StyledInput type="radio" value="calm" id="mood3" name="mood" required />
-					<StyledRadioLabel> Calm</StyledRadioLabel>
-				</StyledDiv>
-				<StyledDiv>
-					<StyledInput type="radio" value="unwell" id="mood4" name="mood" required />
-					<StyledRadioLabel> Unwell</StyledRadioLabel>
-				</StyledDiv>
-				<StyledDiv>
-					<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
-					<StyledRadioLabel> Sad</StyledRadioLabel>
-				</StyledDiv>
-				<StyledDiv>
-					<StyledInput type="radio" value="angry" id="mood6" name="mood" required />
-					<StyledRadioLabel> Angry</StyledRadioLabel>
-				</StyledDiv>
+				<StyledFieldset>
+					<StyledDiv>
+						<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
+						<StyledRadioLabel> Happy</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="proud" id="mood2" name="mood" required />
+						<StyledRadioLabel> Proud</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="calm" id="mood3" name="mood" required />
+						<StyledRadioLabel> Calm</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="unwell" id="mood4" name="mood" required />
+						<StyledRadioLabel> Unwell</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
+						<StyledRadioLabel> Sad</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="angry" id="mood6" name="mood" required />
+						<StyledRadioLabel> Angry</StyledRadioLabel>
+					</StyledDiv>
+				</StyledFieldset>
 				<Headline2 />
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
 				<StyledTextarea
@@ -130,4 +132,7 @@ const StyledInput = styled.input`
 	display: block;
 	width: 20px;
 	margin: 0 auto;
+`;
+const StyledFieldset = styled.fieldset`
+	border: none;
 `;
