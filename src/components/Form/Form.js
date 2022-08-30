@@ -13,19 +13,14 @@ export default function Form() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const {firstEntry, secondEntry, thirdEntry, radio} = Object.fromEntries(formData);
+		const {firstEntry, secondEntry, thirdEntry, mood} = Object.fromEntries(formData);
 		event.target.reset();
 		const entry = {
 			id: nanoid(),
 			first: firstEntry,
 			second: secondEntry,
 			third: thirdEntry,
-			radio1: radio,
-			radio2: radio,
-			radio3: radio,
-			radio4: radio,
-			radio5: radio,
-			radio6: radio,
+			mood: mood,
 		};
 		addEntry(entry);
 		router.push('./diary');
@@ -39,27 +34,27 @@ export default function Form() {
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<Styledh2>How did you feel today?</Styledh2>
 				<StyledDiv>
-					<StyledInput type="radio" value="happy" id="radio1" name="radio" required />
+					<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
 					<StyledRadioLabel> Happy</StyledRadioLabel>
 				</StyledDiv>
 				<StyledDiv>
-					<StyledInput type="radio" value="proud" id="radio2" name="radio" required />
+					<StyledInput type="radio" value="proud" id="mood2" name="mood" required />
 					<StyledRadioLabel> Proud</StyledRadioLabel>
 				</StyledDiv>
 				<StyledDiv>
-					<StyledInput type="radio" value="calm" id="radio3" name="radio" required />
+					<StyledInput type="radio" value="calm" id="mood3" name="mood" required />
 					<StyledRadioLabel> Calm</StyledRadioLabel>
 				</StyledDiv>
 				<StyledDiv>
-					<StyledInput type="radio" value="unwell" id="radio4" name="radio" required />
+					<StyledInput type="radio" value="unwell" id="mood4" name="mood" required />
 					<StyledRadioLabel> Unwell</StyledRadioLabel>
 				</StyledDiv>
 				<StyledDiv>
-					<StyledInput type="radio" value="sad" id="radio5" name="radio" required />
+					<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
 					<StyledRadioLabel> Sad</StyledRadioLabel>
 				</StyledDiv>
 				<StyledDiv>
-					<StyledInput type="radio" value="angry" id="radio6" name="radio" required />
+					<StyledInput type="radio" value="angry" id="mood6" name="mood" required />
 					<StyledRadioLabel> Angry</StyledRadioLabel>
 				</StyledDiv>
 				<Headline2 />

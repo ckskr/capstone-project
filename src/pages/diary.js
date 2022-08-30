@@ -23,7 +23,7 @@ export default function Diary() {
 							<StyledCard key={entry.id}>
 								<StyledFeeling>That is how you felt:</StyledFeeling>
 								<ul>
-									<StyledLi>{entry.radio1}</StyledLi>
+									<StyledLi>{entry.mood}</StyledLi>
 								</ul>
 								<StyledH4>You were grateful for:</StyledH4>
 								<ul>
