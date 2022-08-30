@@ -4,32 +4,62 @@ import {useRouter} from 'next/router';
 import styled from 'styled-components';
 
 import useStore from '../../Hooks/useStore';
+import {pxToRem} from '../../utils/unit';
 import StyledButton from '../Button/StyledButton';
 import Headline2 from '../Headline/Headline2';
-
 export default function Form() {
 	const addEntry = useStore(state => state.addEntry);
 	const router = useRouter();
-
 	function handleSubmit(event) {
 		event.preventDefault();
-
 		const formData = new FormData(event.target);
-		const {firstEntry, secondEntry, thirdEntry} = Object.fromEntries(formData);
-
+		const {firstEntry, secondEntry, thirdEntry, mood} = Object.fromEntries(formData);
 		event.target.reset();
-		const entry = {id: nanoid(), first: firstEntry, second: secondEntry, third: thirdEntry};
+		const entry = {
+			id: nanoid(),
+			first: firstEntry,
+			second: secondEntry,
+			third: thirdEntry,
+			mood: mood,
+		};
 		addEntry(entry);
-
 		router.push('./diary');
 	}
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
 	});
+
 	return (
 		<DynamicWrapper>
-			<Headline2 />
 			<form onSubmit={handleSubmit} autoComplete="off">
+				<Styledh2>How did you feel today?</Styledh2>
+				<StyledFieldset>
+					<StyledDiv>
+						<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
+						<StyledRadioLabel> Happy</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="proud" id="mood2" name="mood" required />
+						<StyledRadioLabel> Proud</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="calm" id="mood3" name="mood" required />
+						<StyledRadioLabel> Calm</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="unwell" id="mood4" name="mood" required />
+						<StyledRadioLabel> Unwell</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
+						<StyledRadioLabel> Sad</StyledRadioLabel>
+					</StyledDiv>
+					<StyledDiv>
+						<StyledInput type="radio" value="angry" id="mood6" name="mood" required />
+						<StyledRadioLabel> Angry</StyledRadioLabel>
+					</StyledDiv>
+				</StyledFieldset>
+				<Headline2 />
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
 				<StyledTextarea
 					type="text"
@@ -63,7 +93,6 @@ export default function Form() {
 					minLength="3"
 					maxLength="200"
 				/>
-
 				<StyledButton variant="default" type="submit">
 					Add to diary
 				</StyledButton>
@@ -71,7 +100,6 @@ export default function Form() {
 		</DynamicWrapper>
 	);
 }
-
 const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
@@ -83,7 +111,28 @@ const StyledTextarea = styled.textarea`
 	border-radius: 5px;
 	color: var(--turq);
 `;
-
 const StyledLabel = styled.label`
 	display: none;
+`;
+const Styledh2 = styled.h2`
+	color: var(--salmon);
+	font-size: ${pxToRem(30)};
+`;
+const StyledDiv = styled.div`
+	display: inline-block;
+	margin: 5px;
+`;
+const StyledRadioLabel = styled.label`
+	display: block;
+	width: 100px;
+	color: var(--turq);
+	text-align: center;
+`;
+const StyledInput = styled.input`
+	display: block;
+	width: 20px;
+	margin: 0 auto;
+`;
+const StyledFieldset = styled.fieldset`
+	border: none;
 `;
