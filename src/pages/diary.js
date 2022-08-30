@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
@@ -6,12 +7,15 @@ import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import useStore from '../Hooks/useStore';
 
+function Date({datum}) {
+	return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
+}
+
 export default function Diary() {
 	const deleteEntry = useStore(state => state.deleteEntry);
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
-
 	const entries = useStore(state => state.entries);
 	return (
 		<DynamicWrapper>
@@ -21,11 +25,9 @@ export default function Diary() {
 					entries.map(entry => {
 						return (
 							<StyledCard key={entry.id}>
-								<StyledFeeling>That is how you felt:</StyledFeeling>
-								<ul>
-									<StyledLi>{entry.mood}</StyledLi>
-								</ul>
+								<Date />
 								<StyledH4>You were grateful for:</StyledH4>
+
 								<ul>
 									<StyledLi>{entry.first}</StyledLi>
 									<StyledLi>{entry.second}</StyledLi>
@@ -48,34 +50,40 @@ export default function Diary() {
 		</DynamicWrapper>
 	);
 }
+
 /* --------------------Styling --------------------------------*/
+
 const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
 	padding: 10px;
 	gap: 10px;
-	padding-bottom: 100px;
 `;
+
 const StyledLi = styled.li`
 	display: flex;
 	flex-direction: column;
 	color: var(--turq_light);
 `;
+
 const StyledCard = styled.section`
 	display: flex;
 	position: relative;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	width: 93vw;
 	border: 1px solid var(--turq_light);
 	border-radius: 5px;
 `;
+
 const StyledH4 = styled.h4`
 	display: flex;
+	order: 1;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
-const StyledFeeling = styled.h4`
-	display: flex;
+
+const StyledDate = styled.div`
+	order: 2;
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
