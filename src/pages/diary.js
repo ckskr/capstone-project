@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
@@ -12,9 +11,7 @@ export default function Diary() {
 	const DynamicWrapper = dynamic(() => import('../components/styledWrapper'), {
 		ssr: false,
 	});
-	function Date({datum}) {
-		return <StyledDate>{dayjs(datum).format('DD.MM.YYYY h:mm A')}</StyledDate>;
-	}
+
 	const entries = useStore(state => state.entries);
 	return (
 		<DynamicWrapper>
@@ -24,7 +21,6 @@ export default function Diary() {
 					entries.map(entry => {
 						return (
 							<StyledCard key={entry.id}>
-								<Date />
 								<StyledFeeling>That is how you felt:</StyledFeeling>
 								<ul>
 									<StyledLi>{entry.radio1}</StyledLi>
@@ -80,10 +76,6 @@ const StyledH4 = styled.h4`
 `;
 const StyledFeeling = styled.h4`
 	display: flex;
-	margin-left: 15px;
-	color: var(--turq_light);
-`;
-const StyledDate = styled.div`
 	margin-left: 15px;
 	color: var(--turq_light);
 `;
