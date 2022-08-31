@@ -9,12 +9,14 @@ import StyledButton from '../Button/StyledButton';
 import Headline2 from '../Headline/Headline2';
 export default function Form() {
 	const addEntry = useStore(state => state.addEntry);
+
 	const router = useRouter();
 	function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
 		const {firstEntry, secondEntry, thirdEntry, mood, dailySpecial} =
 			Object.fromEntries(formData);
+
 		event.target.reset();
 		const entry = {
 			id: nanoid(),
@@ -24,7 +26,9 @@ export default function Form() {
 			mood: mood,
 			special: dailySpecial,
 		};
+		console.log(entry.id);
 		addEntry(entry);
+
 		router.push('./diary');
 	}
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
@@ -35,7 +39,7 @@ export default function Form() {
 		<DynamicWrapper>
 			<form onSubmit={handleSubmit} autoComplete="off">
 				<Styledh2>How did you feel today?</Styledh2>
-				<StyledFieldset>
+				<StyledFieldset name="date">
 					<StyledDiv>
 						<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
 						<StyledRadioLabel> Happy</StyledRadioLabel>
