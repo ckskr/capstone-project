@@ -13,7 +13,8 @@ export default function Form() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		const formData = new FormData(event.target);
-		const {firstEntry, secondEntry, thirdEntry, mood} = Object.fromEntries(formData);
+		const {firstEntry, secondEntry, thirdEntry, mood, dailySpecial} =
+			Object.fromEntries(formData);
 		event.target.reset();
 		const entry = {
 			id: nanoid(),
@@ -21,6 +22,7 @@ export default function Form() {
 			second: secondEntry,
 			third: thirdEntry,
 			mood: mood,
+			special: dailySpecial,
 		};
 		addEntry(entry);
 		router.push('./diary');
@@ -90,6 +92,17 @@ export default function Form() {
 					aria-label="Form for GratitudeDiary"
 					placeholder="Think harder about a last thing that you are grateful for"
 					required
+					minLength="3"
+					maxLength="200"
+				/>
+
+				<Styledh2>Add some words about your day</Styledh2>
+				<StyledTextarea
+					type="text"
+					id="dailySpecial"
+					name="dailySpecial"
+					aria-label="Form for GratitudeDiary"
+					placeholder="Did something special happen today? Write it down here :)"
 					minLength="3"
 					maxLength="200"
 				/>
