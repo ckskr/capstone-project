@@ -13,6 +13,7 @@ export default function Diary() {
 	});
 
 	const entries = useStore(state => state.entries);
+
 	return (
 		<DynamicWrapper>
 			<DiaryHeadline />
@@ -31,6 +32,7 @@ export default function Diary() {
 									<StyledLi>{entry.second}</StyledLi>
 									<StyledLi>{entry.third}</StyledLi>
 								</ul>
+								{entry.special ? <StyledP>{entry.special}</StyledP> : ''}
 
 								<StyledButton
 									variant="delete"
@@ -79,4 +81,17 @@ const StyledFeeling = styled.h4`
 	display: flex;
 	margin-left: 15px;
 	color: var(--turq_light);
+`;
+
+const StyledP = styled.p`
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px;
+	color: var(--turq_light);
+
+	::before {
+		content: 'Special things happening today: ';
+		color: var(--turq_light);
+		font-weight: bold;
+	}
 `;
