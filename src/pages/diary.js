@@ -22,7 +22,6 @@ export default function Diary() {
 					entries.map(entry => {
 						return (
 							<StyledCard key={entry.id}>
-								<StyledDate>hallo {entry.timeStamp}</StyledDate>
 								<StyledFeeling>That is how you felt:</StyledFeeling>
 								<ul>
 									<StyledLi>{entry.mood}</StyledLi>
@@ -95,9 +94,4 @@ const StyledP = styled.p`
 		color: var(--turq_light);
 		font-weight: bold;
 	}
-`;
-
-const StyledDate = styled.div`
-	margin-left: 15px;
-	color: var(--turq_light);
 `;
