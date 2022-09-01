@@ -12,6 +12,9 @@ export default function Navigation() {
 			<Link href="./diary">
 				<StyledLink active={router.pathname === '/diary'}>My Diary</StyledLink>
 			</Link>
+			<Link href="./exercise">
+				<StyledLink active={router.pathname === '/exercise'}>Calm down</StyledLink>
+			</Link>
 		</StyledNavigation>
 	);
 }
