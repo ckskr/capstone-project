@@ -6,8 +6,8 @@ export default function Navigation() {
 	const router = useRouter();
 	return (
 		<StyledNavigation>
-			<Link href="./">
-				<StyledLink active={router.pathname === '/'}>Daily entry</StyledLink>
+			<Link href="./form">
+				<StyledLink active={router.pathname === '/form'}>Daily entry</StyledLink>
 			</Link>
 			<Link href="./diary">
 				<StyledLink active={router.pathname === '/diary'}>My Diary</StyledLink>
