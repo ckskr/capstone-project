@@ -22,6 +22,7 @@ export default function Diary() {
 					entries.map(entry => {
 						return (
 							<StyledCard key={entry.id}>
+
 								<StyledDate>{entry.date}</StyledDate>
 								<StyledFeeling>That is how you felt:</StyledFeeling>
 								<ul>
