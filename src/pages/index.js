@@ -17,7 +17,7 @@ export default function StartPage() {
 			</StyledH1>
 			<StyledBox>
 				<Link href="./form">
-					<StyledLink active={router.pathname === '/index'}>
+					<StyledLink active={router.pathname === '/form'}>
 						How did you feel today?
 					</StyledLink>
 				</Link>
