@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import {nanoid} from 'nanoid';
 import dynamic from 'next/dynamic';
 import {useRouter} from 'next/router';
@@ -12,21 +13,26 @@ export default function Form() {
 	const router = useRouter();
 	function handleSubmit(event) {
 		event.preventDefault();
+		const timestamp = dayjs().valueOf();
 		const formData = new FormData(event.target);
 		const {firstEntry, secondEntry, thirdEntry, mood, dailySpecial} =
 			Object.fromEntries(formData);
 		event.target.reset();
 		const entry = {
 			id: nanoid(),
+			date: dayjs(timestamp).format('MMM D, YYYY h:mm A'),
 			first: firstEntry,
 			second: secondEntry,
 			third: thirdEntry,
 			mood: mood,
 			special: dailySpecial,
 		};
+		console.log(entry.date);
 		addEntry(entry);
 		router.push('./diary');
 	}
+	/*function dateEntry()*/
+
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
 	});
