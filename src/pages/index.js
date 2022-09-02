@@ -16,15 +16,19 @@ export default function StartPage() {
 				<h2>Great to have you here</h2>
 			</StyledH1>
 			<StyledBox>
-				<Link href="./form">
-					<StyledLink active={router.pathname === '/form'}>
+				<Link href="./entry">
+					<StyledLink active={router.pathname === '/entry'}>
 						How did you feel today?
 					</StyledLink>
 				</Link>
-
 				<Link href="./diary">
 					<StyledLink active={router.pathname === '/diary'}>
 						Your mood in a retrospective
+					</StyledLink>
+				</Link>
+				<Link href="./breathwork">
+					<StyledLink active={router.pathname === '/breathwork'}>
+						Make some breathing exercise
 					</StyledLink>
 				</Link>
 			</StyledBox>

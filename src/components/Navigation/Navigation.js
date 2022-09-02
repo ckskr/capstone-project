@@ -6,14 +6,14 @@ export default function Navigation() {
 	const router = useRouter();
 	return (
 		<StyledNavigation>
-			<Link href="./form">
-				<StyledLink active={router.pathname === '/form'}>Daily entry</StyledLink>
+			<Link href="./entry">
+				<StyledLink active={router.pathname === '/entry'}>Daily entry</StyledLink>
 			</Link>
 			<Link href="./diary">
 				<StyledLink active={router.pathname === '/diary'}>My Diary</StyledLink>
 			</Link>
-			<Link href="./exercise">
-				<StyledLink active={router.pathname === '/exercise'}>Calm down</StyledLink>
+			<Link href="./breathwork">
+				<StyledLink active={router.pathname === '/breathwork'}>Take a breath</StyledLink>
 			</Link>
 		</StyledNavigation>
 	);
@@ -26,6 +26,7 @@ const StyledNavigation = styled.nav`
 	bottom: 0;
 	left: 0;
 	justify-content: space-around;
+	height: 50px;
 	padding: 10px;
 	background-color: var(--rose);
 `;

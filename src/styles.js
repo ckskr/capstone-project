@@ -55,7 +55,7 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		height: 100vw;
+		height: calc(100vh - 50px);
 		margin: 0;
 		margin-bottom: 100px;
 		padding: 10px;
@@ -72,12 +72,4 @@ export const GlobalStyle = createGlobalStyle`
 --rose: #ffddd2;
 --salmon: #e29578;
 }
-
-
-
-
-
-
-
-
 `;

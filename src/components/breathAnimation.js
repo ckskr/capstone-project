@@ -21,15 +21,18 @@ const Container = styled.div`
 `;
 
 const breatheAnimation1 = keyframes`
- 0% { width: 50px;
-	height: 50px;
+ 0% { width: 70px;
+	height: 70px;
 	opacity: 0.8; }
- 50% { width: 100px;
-	height: 100px;
-	opacity: 1; }
- 100% { width: 50px;
- height: 50px;
- opacity: 0.8; }
+ 50% { width: 200px;
+	height: 200px;
+	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
+	opacity: 1;
+	}
+ 100% { width: 70px;
+ height: 70px;
+ transform: rotate(20deg);
+ opacity: 0.8;}
 `;
 
 const Circle1 = styled.div`
@@ -45,15 +48,18 @@ const Circle1 = styled.div`
 `;
 
 const breatheAnimation2 = keyframes`
- 0% {  width: 50px;
-	height: 50px;
+ 0% {  width: 70px;
+	height: 70px;
 	opacity: 0.4; }
- 50% { width: 160px;
-	 height: 160px;
-	 opacity: 0.5; }
- 100% { width: 50px;
- height: 50px;
- opacity: 0.4; }
+ 50% { width: 260px;
+	height: 260px;
+	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
+	opacity: 0.5
+ }
+ 100% {  width: 70px;
+ height: 70px;
+ transform: rotate(20deg);
+ opacity: 0.4;}
 `;
 
 const Circle2 = styled.div`
@@ -69,17 +75,19 @@ const Circle2 = styled.div`
 `;
 
 const breatheAnimation3 = keyframes`
- 0% { width: 50px;
-	height: 50px;
+ 0% {  width: 70px;
+	height: 70px;
 	opacity: 0.2; }
- 50% { width: 200px;
-	height: 200px;
-	opacity: 0.3; }
- 100% { width: 50px;
- height: 50px;
- opacity: 0.2; }
+ 50% {  width: 300px;
+	height: 300px;
+	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
+	opacity: 0.3;
+	}
+ 100% { width: 70px;
+ height: 70px;
+ transform: rotate(20deg);
+ opacity: 0.2;}
 `;
-
 const Circle3 = styled.div`
 	position: absolute;
 	z-index: 3;
@@ -113,7 +121,6 @@ const StyledSpanIn = styled.span`
 	animation-duration: 10s;
 	animation-iteration-count: infinite;
 	color: #fff;
-	font-size: 10px;
 	font-weight: 400;
 `;
 
@@ -124,6 +131,5 @@ const StyledSpanOut = styled.span`
 	animation-duration: 10s;
 	animation-iteration-count: infinite;
 	color: #fff;
-	font-size: 10px;
 	font-weight: 400;
 `;
