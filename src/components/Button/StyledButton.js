@@ -14,6 +14,8 @@ const StyledButton = styled.button`
 			color: var(--turq);
 			background-color: var(--rose);
 
+			margin-bottom: 70px;
+
 			&:hover {
 				background: var(--salmon);
 				color: var(--neutral);

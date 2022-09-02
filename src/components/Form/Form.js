@@ -34,7 +34,6 @@ export default function Form() {
 
 		router.push('./diary');
 	}
-	/*function dateEntry()*/
 
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
@@ -122,6 +121,7 @@ export default function Form() {
 		</DynamicWrapper>
 	);
 }
+
 const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
