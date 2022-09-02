@@ -122,10 +122,7 @@ export default function Form() {
 	);
 }
 
-const StyledForm = styled.form`
-	position: relative;
-	height: calc(100vh - 50px);
-`;
+const StyledForm = styled.form``;
 
 const StyledTextarea = styled.textarea`
 	display: flex;

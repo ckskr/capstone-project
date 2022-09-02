@@ -13,10 +13,6 @@ const StyledButton = styled.button`
 		css`
 			color: var(--turq);
 			background-color: var(--rose);
-			margin-bottom: 170px;
-			position: absolute;
-			bottom: 70px;
-			left: 15px;
 
 			&:hover {
 				background: var(--salmon);
