@@ -41,7 +41,7 @@ export default function Form() {
 
 	return (
 		<DynamicWrapper>
-			<form onSubmit={handleSubmit} autoComplete="off">
+			<StyledForm onSubmit={handleSubmit} autoComplete="off">
 				<Styledh2>How did you feel today?</Styledh2>
 				<StyledFieldset name="date">
 					<StyledDiv>
@@ -117,10 +117,15 @@ export default function Form() {
 				<StyledButton variant="default" type="submit">
 					Add to diary
 				</StyledButton>
-			</form>
+			</StyledForm>
 		</DynamicWrapper>
 	);
 }
+
+const StyledForm = styled.form`
+	position: relative;
+	height: calc(100vh - 50px);
+`;
 
 const StyledTextarea = styled.textarea`
 	display: flex;
