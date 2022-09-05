@@ -34,7 +34,6 @@ export default function Form() {
 
 		router.push('./diary');
 	}
-	/*function dateEntry()*/
 
 	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 		ssr: false,
@@ -42,7 +41,7 @@ export default function Form() {
 
 	return (
 		<DynamicWrapper>
-			<form onSubmit={handleSubmit} autoComplete="off">
+			<StyledForm onSubmit={handleSubmit} autoComplete="off">
 				<Styledh2>How did you feel today?</Styledh2>
 				<StyledFieldset name="date">
 					<StyledDiv>
@@ -118,10 +117,13 @@ export default function Form() {
 				<StyledButton variant="default" type="submit">
 					Add to diary
 				</StyledButton>
-			</form>
+			</StyledForm>
 		</DynamicWrapper>
 	);
 }
+
+const StyledForm = styled.form``;
+
 const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
