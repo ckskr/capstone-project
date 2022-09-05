@@ -110,8 +110,19 @@ export default function Form() {
 								id="mood3"
 								name="mood"
 								required
+								checked={moods.calm}
+								onChange={() => {
+									setMoods({...moods, calm: !moods.calm});
+								}}
 							/>
-							<StyledImage src="/calm.png" alt="calm" width={30} height={30} /> Calm
+							<StyledImage
+								src="/calm.png"
+								alt="calm"
+								width={30}
+								height={30}
+								checked={moods.calm}
+							/>
+							Calm
 						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
@@ -122,15 +133,42 @@ export default function Form() {
 								id="mood4"
 								name="mood"
 								required
+								checked={moods.unwell}
+								onChange={() => {
+									setMoods({...moods, unwell: !moods.unwell});
+								}}
 							/>
-							<StyledImage src="/unwell.png" alt="unwell" width={30} height={30} />
+							<StyledImage
+								src="/unwell.png"
+								alt="unwell"
+								width={30}
+								height={30}
+								checked={moods.unwell}
+							/>
 							Unwell
 						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
 						<StyledRadioLabel>
-							<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
-							<StyledImage src="/sad.png" alt="sad" width={30} height={30} /> Sad
+							<StyledInput
+								type="radio"
+								value="sad"
+								id="mood5"
+								name="mood"
+								required
+								checked={moods.sad}
+								onChange={() => {
+									setMoods({...moods, sad: !moods.sad});
+								}}
+							/>
+							<StyledImage
+								src="/sad.png"
+								alt="sad"
+								width={30}
+								height={30}
+								checked={moods.sad}
+							/>
+							Sad
 						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
@@ -141,8 +179,18 @@ export default function Form() {
 								id="mood6"
 								name="mood"
 								required
+								checked={moods.angry}
+								onChange={() => {
+									setMoods({...moods, angry: !moods.angry});
+								}}
 							/>
-							<StyledImage src="/angry.png" alt="angry" width={30} height={30} />
+							<StyledImage
+								src="/angry.png"
+								alt="angry"
+								width={30}
+								height={30}
+								checked={moods.angry}
+							/>
 							Angry
 						</StyledRadioLabel>
 					</StyledDiv>
@@ -227,19 +275,14 @@ const StyledRadioLabel = styled.label`
 	font-size: 12px;
 	text-align: center;
 	cursor: pointer;
-	&:checked {
-		outline: 2px solid red;
-	}
 `;
 
 const StyledImage = styled.img`
 	position: relative;
 	margin-left: 40px;
-	cursor: pointer;
 	border-radius: 50%;
-	border: 2px solid ${({checked}) => (checked ? 'black' : 'transparent')};
-	box-shadow: ${({checked}) =>
-		checked ? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' : 'transparent'};
+	background: ${({checked}) => (checked ? 'var(--rose)' : 'transparent')};
+	cursor: pointer;
 `;
 
 const StyledDiv = styled.div`
