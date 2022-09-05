@@ -2,15 +2,26 @@ import dayjs from 'dayjs';
 import {nanoid} from 'nanoid';
 import dynamic from 'next/dynamic';
 import {useRouter} from 'next/router';
+import {useState} from 'react';
 import styled from 'styled-components';
 
 import useStore from '../../Hooks/useStore';
-import {pxToRem} from '../../utils/unit';
 import StyledButton from '../Button/StyledButton';
-import Headline2 from '../Headline/Headline2';
+import SVG from '../svg';
+const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
+	ssr: false,
+});
+
 export default function Form() {
 	const addEntry = useStore(state => state.addEntry);
-
+	const [moods, setMoods] = useState({
+		happy: false,
+		proud: false,
+		calm: false,
+		unwell: false,
+		angry: false,
+		sad: false,
+	});
 	const router = useRouter();
 	function handleSubmit(event) {
 		event.preventDefault();
@@ -35,41 +46,109 @@ export default function Form() {
 		router.push('./diary');
 	}
 
-	const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
-		ssr: false,
-	});
-
 	return (
 		<DynamicWrapper>
+			<StyledH1>
+				Great to have you here <SVG variant="heart" size="10px" />
+			</StyledH1>
 			<StyledForm onSubmit={handleSubmit} autoComplete="off">
-				<Styledh2>How did you feel today?</Styledh2>
+				<StyledH2>How did you feel today?</StyledH2>
+
 				<StyledFieldset name="date">
 					<StyledDiv>
-						<StyledInput type="radio" value="happy" id="mood1" name="mood" required />
-						<StyledRadioLabel> Happy</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput
+								type="radio"
+								value="happy"
+								id="mood1"
+								name="mood"
+								required
+								checked={moods.happy}
+								onChange={() => {
+									setMoods({...moods, happy: !moods.happy});
+								}}
+							/>
+							<StyledImage
+								type="radio"
+								src="/happy.png"
+								alt="happy"
+								width={30}
+								height={30}
+								checked={moods.happy}
+							/>
+							Happy
+						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
-						<StyledInput type="radio" value="proud" id="mood2" name="mood" required />
-						<StyledRadioLabel> Proud</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput
+								type="radio"
+								value="proud"
+								id="mood2"
+								name="mood"
+								required
+								checked={moods.proud}
+								onChange={() => {
+									setMoods({...moods, proud: !moods.proud});
+								}}
+							/>
+							<StyledImage
+								src="/proud.png"
+								alt="proud"
+								width={30}
+								height={30}
+								checked={moods.proud}
+							/>
+							Proud
+						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
-						<StyledInput type="radio" value="calm" id="mood3" name="mood" required />
-						<StyledRadioLabel> Calm</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput
+								type="radio"
+								value="calm"
+								id="mood3"
+								name="mood"
+								required
+							/>
+							<StyledImage src="/calm.png" alt="calm" width={30} height={30} /> Calm
+						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
-						<StyledInput type="radio" value="unwell" id="mood4" name="mood" required />
-						<StyledRadioLabel> Unwell</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput
+								type="radio"
+								value="unwell"
+								id="mood4"
+								name="mood"
+								required
+							/>
+							<StyledImage src="/unwell.png" alt="unwell" width={30} height={30} />
+							Unwell
+						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
-						<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
-						<StyledRadioLabel> Sad</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput type="radio" value="sad" id="mood5" name="mood" required />
+							<StyledImage src="/sad.png" alt="sad" width={30} height={30} /> Sad
+						</StyledRadioLabel>
 					</StyledDiv>
 					<StyledDiv>
-						<StyledInput type="radio" value="angry" id="mood6" name="mood" required />
-						<StyledRadioLabel> Angry</StyledRadioLabel>
+						<StyledRadioLabel>
+							<StyledInput
+								type="radio"
+								value="angry"
+								id="mood6"
+								name="mood"
+								required
+							/>
+							<StyledImage src="/angry.png" alt="angry" width={30} height={30} />
+							Angry
+						</StyledRadioLabel>
 					</StyledDiv>
 				</StyledFieldset>
-				<Headline2 />
+				<StyledH2>What are you grateful for today?</StyledH2>
+				<StyledH3>Name three things</StyledH3>
 				<StyledLabel htmlFor="firstEntry">firstEntry </StyledLabel>
 				<StyledTextarea
 					type="text"
@@ -104,7 +183,7 @@ export default function Form() {
 					maxLength="200"
 				/>
 
-				<Styledh2>Add some words about your day</Styledh2>
+				<StyledH2>Add some words about your day</StyledH2>
 				<StyledTextarea
 					type="text"
 					id="dailySpecial"
@@ -140,25 +219,64 @@ const StyledTextarea = styled.textarea`
 const StyledLabel = styled.label`
 	display: none;
 `;
-const Styledh2 = styled.h2`
-	color: var(--salmon);
-	font-size: ${pxToRem(30)};
+const StyledRadioLabel = styled.label`
+	display: flex;
+	flex-direction: column;
+	width: 100px;
+	color: var(--turq);
+	font-size: 12px;
+	text-align: center;
+	cursor: pointer;
+	&:checked {
+		outline: 2px solid red;
+	}
 `;
+
+const StyledImage = styled.img`
+	position: relative;
+	margin-left: 40px;
+	cursor: pointer;
+	border-radius: 50%;
+	border: 2px solid ${({checked}) => (checked ? 'black' : 'transparent')};
+	box-shadow: ${({checked}) =>
+		checked ? 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' : 'transparent'};
+`;
+
 const StyledDiv = styled.div`
 	display: inline-block;
 	margin: 5px;
 `;
-const StyledRadioLabel = styled.label`
-	display: block;
-	width: 100px;
-	color: var(--turq);
-	text-align: center;
-`;
+
 const StyledInput = styled.input`
 	display: block;
+	position: absolute;
 	width: 20px;
 	margin: 0 auto;
+	opacity: 0;
 `;
+
+const StyledH1 = styled.h1`
+	display: flex;
+	justify-content: center;
+	color: var(--turq);
+	font-size: 15px;
+	font-weight: 200;
+`;
+
+const StyledH2 = styled.h2`
+	margin-top: 50px;
+	color: var(--salmon);
+	font-size: 20px;
+	font-weight: 600;
+`;
+
+const StyledH3 = styled.h3`
+	margin-top: -16px;
+	color: var(--salmon);
+	font-size: 14px;
+	font-weight: 500;
+`;
+
 const StyledFieldset = styled.fieldset`
 	border: none;
 `;
