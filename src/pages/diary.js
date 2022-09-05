@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import StyledButton from '../components/Button/StyledButton';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
+import SVG from '../components/svg';
 import useStore from '../Hooks/useStore';
 
 export default function Diary() {
@@ -16,7 +17,11 @@ export default function Diary() {
 
 	return (
 		<DynamicWrapper>
+			<StyledH1>
+				Your diary <SVG variant="heart" size="10px" />
+			</StyledH1>
 			<DiaryHeadline />
+
 			<StyledDiv>
 				{entries &&
 					entries.map(entry => {
@@ -103,4 +108,12 @@ const StyledDate = styled.div`
 	right: 15px;
 	color: var(--turq_light);
 	font-size: 12px;
+`;
+
+const StyledH1 = styled.h1`
+	display: flex;
+	justify-content: center;
+	color: var(--turq);
+	font-size: 15px;
+	font-weight: 200;
 `;

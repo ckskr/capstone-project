@@ -12,30 +12,32 @@ export default function StartPage() {
 	const router = useRouter();
 	return (
 		<DynamicWrapper>
-			<StyledH1>Welcome to Daimoo</StyledH1>
-			<StyledH2>your daily mood check</StyledH2>
+			<StyledH1>
+				Your daily mood check <SVG variant="heart" size="10px" />
+			</StyledH1>
+			<StyledH2>Welcome to Daimoo</StyledH2>
 			<StyledBox>
 				<Link href="./entry">
 					<StyledLink active={router.pathname === '/entry'}>
-						<SVG variant="pen" size="40px" color="black" margin="15px" />
+						<SVG variant="pen" size="40px" color="var(--rose)" margin="15px" />
 						<StyledH3>How did you feel today?</StyledH3>
 					</StyledLink>
 				</Link>
 				<Link href="./diary">
 					<StyledLink active={router.pathname === '/diary'}>
-						<SVG variant="diary" size="40px" color="black" margin="15px" />
+						<SVG variant="diary" size="40px" color="var(--rose)" margin="15px" />
 						<StyledH3>Your mood in a retrospective</StyledH3>
 					</StyledLink>
 				</Link>
 				<Link href="./breathwork">
 					<StyledLink active={router.pathname === '/breathwork'}>
-						<SVG variant="lotus" size="40px" color="black" margin="15px" />
+						<SVG variant="lotus" size="40px" color="var(--rose)" margin="15px" />
 						<StyledH3>Make some breathing exercise</StyledH3>
 					</StyledLink>
 				</Link>
 			</StyledBox>
 			<StyledH4>
-				Made with <SVG variant="heart" size="15px" color="var(--salmon)" /> in Munich
+				Made with <SVG variant="heart" size="15px" color="var(--turq_light)" /> in Munich
 			</StyledH4>
 		</DynamicWrapper>
 	);
@@ -44,17 +46,16 @@ export default function StartPage() {
 const StyledH1 = styled.h1`
 	display: flex;
 	justify-content: center;
-	margin-bottom: 0;
-	color: black;
-	font-size: 30px;
-	font-weight: 500;
+	color: var(--turq);
+	font-size: 15px;
+	font-weight: 200;
 `;
 
 const StyledH2 = styled.h2`
 	display: flex;
 	justify-content: center;
 	margin-top: -10px;
-	color: black;
+	color: var(--turq);
 	font-size: 20px;
 	font-weight: 500;
 `;
@@ -66,9 +67,9 @@ const StyledLink = styled.a`
 	height: 70px;
 	margin: 10px;
 	border-radius: 5px;
-	background-color: var(--rose);
+	background-color: var(--salmon);
 	box-shadow: rgba(17, 17, 26, 0.05) 0 1px 0, rgba(17, 17, 26, 0.1) 0 0 8px;
-	color: var(--salmon);
+	color: white;
 
 	&:hover {
 		font-weight: 1000;
@@ -87,13 +88,14 @@ const StyledBox = styled.div`
 const StyledH3 = styled.h3`
 	width: 200px;
 	margin-left: 40px;
-	font-weight: 300;
+	font-weight: 350;
 `;
 
 const StyledH4 = styled.h4`
 	display: flex;
 	justify-content: center;
 	margin-top: 150px;
+	color: var(--turq);
 	font-size: 12px;
 	font-weight: 200;
 `;
