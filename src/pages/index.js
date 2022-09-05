@@ -19,19 +19,19 @@ export default function StartPage() {
 			<StyledBox>
 				<Link href="./entry">
 					<StyledLink active={router.pathname === '/entry'}>
-						<SVG variant="pen" size="40px" color="var(--rose)" margin="15px" />
+						<SVG variant="pen" size="40px" color="var(--neutral)" margin="15px" />
 						<StyledH3>How did you feel today?</StyledH3>
 					</StyledLink>
 				</Link>
 				<Link href="./diary">
 					<StyledLink active={router.pathname === '/diary'}>
-						<SVG variant="diary" size="40px" color="var(--rose)" margin="15px" />
+						<SVG variant="diary" size="40px" color="var(--neutral)" margin="15px" />
 						<StyledH3>Your mood in a retrospective</StyledH3>
 					</StyledLink>
 				</Link>
 				<Link href="./breathwork">
 					<StyledLink active={router.pathname === '/breathwork'}>
-						<SVG variant="lotus" size="40px" color="var(--rose)" margin="15px" />
+						<SVG variant="lotus" size="40px" color="var(--neutral)" margin="15px" />
 						<StyledH3>Make some breathing exercise</StyledH3>
 					</StyledLink>
 				</Link>
@@ -69,11 +69,7 @@ const StyledLink = styled.a`
 	border-radius: 5px;
 	background-color: var(--salmon);
 	box-shadow: rgba(17, 17, 26, 0.05) 0 1px 0, rgba(17, 17, 26, 0.1) 0 0 8px;
-	color: white;
-
-	&:hover {
-		font-weight: 1000;
-	}
+	color: var(--neutral);
 `;
 
 const StyledBox = styled.div`

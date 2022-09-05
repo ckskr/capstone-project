@@ -249,7 +249,9 @@ export default function Form() {
 	);
 }
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+	margin-bottom: 90px;
+`;
 
 const StyledTextarea = styled.textarea`
 	display: flex;
@@ -261,6 +263,9 @@ const StyledTextarea = styled.textarea`
 	border: 1px solid var(--rose);
 	border-radius: 5px;
 	color: var(--turq);
+	font-family: 'Poppins', sans-serif;
+	font-size: 15px;
+	font-weight: 300;
 `;
 const StyledLabel = styled.label`
 	display: none;

@@ -56,7 +56,7 @@ export const GlobalStyle = createGlobalStyle`
 
 	body {
 		height: calc(100vh - 60px);;
-		margin: 0;
+		margin-bottom: 70px;
 		padding:10px;
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
