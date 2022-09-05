@@ -122,7 +122,9 @@ export default function Form() {
 	);
 }
 
-const StyledForm = styled.form``;
+const StyledForm = styled.form`
+	margin-bottom: 70px;
+`;
 
 const StyledTextarea = styled.textarea`
 	display: flex;

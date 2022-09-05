@@ -58,15 +58,12 @@ export const GlobalStyle = createGlobalStyle`
 		height: 100vh;
 		margin: 0;
 		padding: 10px;
-		padding-bottom:100px;
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
 		font-style: "normal";
 
 	}
-	main {
-		padding-bottom:100px;
-	}
+
 
 :root {
 --turq: #006D77;
