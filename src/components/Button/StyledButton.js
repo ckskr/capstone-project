@@ -30,8 +30,8 @@ const StyledButton = styled.button`
 			height: 25px;
 			order: -1;
 			position: absolute;
-			bottom: 5px;
-			right: 5px;
+			bottom: 10px;
+			right: 10px;
 			padding: 5px;
 			font-size: 12px;
 

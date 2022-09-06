@@ -58,6 +58,18 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 
+@font-face {
+ font-family: 'Nothing You';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/NothingYouCouldDo-Regular'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/NothingYouCouldDo-Regular') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/NothingYouCouldDo-Regular') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('svg'); /* Legacy iOS */
+}
 
 
 	*,

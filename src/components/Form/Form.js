@@ -264,15 +264,15 @@ const StyledForm = styled.form`
 const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
-	width: 360px;
+	width: 340px;
 	height: 80px;
 	margin: 10px 0;
 	padding: 10px;
 	border: 1px solid var(--rose);
 	border-radius: 5px;
 	color: var(--turq);
-	font-family: 'Oooh Baby', sans-serif;
-	font-size: 20px;
+	font-family: 'Nothing You', sans-serif;
+	font-size: 16px;
 	font-weight: 300;
 `;
 const StyledLabel = styled.label`
@@ -292,12 +292,12 @@ const StyledRadioLabel = styled.label`
 	cursor: pointer;
 `;
 
-export const StyledImage = styled.img`
+const StyledImage = styled.img`
 	display: flex;
 	flex-direction: column;
 	margin-left: 0;
 	border-radius: 50%;
-	background: ${({checked}) => (checked ? 'var(--rose)' : 'transparent')};
+	background: ${({checked}) => (checked ? 'var(--turq_light)' : 'transparent')};
 	cursor: pointer;
 `;
 

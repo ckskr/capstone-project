@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import StyledButton from '../components/Button/StyledButton';
-import {StyledImage} from '../components/Form/Form';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import SVG from '../components/svg';
@@ -39,6 +38,7 @@ export default function Diary() {
 											height={24}
 										/>
 									</StyledH4>
+									<br></br>
 									<StyledH4>I was grateful for:</StyledH4>
 									<StyledUl>
 										<StyledLi>{entry.first}</StyledLi>
@@ -72,17 +72,18 @@ const StyledDiv = styled.div`
 `;
 
 const StyledInputWrapper = styled.div`
-	padding-top: 25px;
+	padding-top: 40px;
 `;
 
 const StyledUl = styled.ul`
-	padding-left: 20px; ;
+	margin: 0;
+	padding: 0 0 20px 20px;
 `;
 
 const StyledWord = styled.div`
 	margin: 0 10px 0 10px;
 	color: var(--turq);
-	font-family: 'Oooh Baby', sans-serif;
+	font-family: 'Nothing You', sans-serif;
 	font-size: 20px;
 	text-decoration: none;
 `;
@@ -90,8 +91,8 @@ const StyledWord = styled.div`
 const StyledLi = styled.li`
 	list-style-type: circle;
 	color: var(--turq);
-	font-family: 'Oooh Baby', sans-serif;
-	font-size: 22px;
+	font-family: 'Nothing You', sans-serif;
+	font-size: 18px;
 	text-align: left;
 `;
 const StyledCard = styled.section`
@@ -109,15 +110,25 @@ const StyledCard = styled.section`
 const StyledH4 = styled.h4`
 	display: flex;
 	margin: 0;
+	padding: 0;
 	color: var(--turq_light);
 	font-weight: 500;
+`;
+
+const StyledImage = styled.img`
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px;
+	border-radius: 50%;
+	background: ${({checked}) => (checked ? 'var(--turq_light)' : 'transparent')};
+	cursor: pointer;
 `;
 
 const StyledP = styled.p`
 	margin: 0 0 12px 0;
 	color: var(--turq);
-	font-family: 'Oooh Baby', sans-serif;
-	font-size: 22px;
+	font-family: 'Nothing You', sans-serif;
+	font-size: 18px;
 
 	::before {
 		content: 'Special things happening today: ';
@@ -125,8 +136,6 @@ const StyledP = styled.p`
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
 		font-weight: 500;
-		text-underline-offset: 0.3em;
-		text-decoration: underline 2px solid var(--turq_light);
 	}
 `;
 const StyledDate = styled.div`
@@ -134,7 +143,7 @@ const StyledDate = styled.div`
 	top: 15px;
 	right: 15px;
 	color: var(--turq);
-	font-family: 'Oooh Baby', sans-serif;
+	font-family: 'Nothing You', sans-serif;
 	font-size: 15px;
 `;
 const StyledH1 = styled.h1`

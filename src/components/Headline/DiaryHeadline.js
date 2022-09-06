@@ -11,7 +11,10 @@ const StyledH2 = styled.h2`
 export default function DiaryHeadline() {
 	return (
 		<>
-			<StyledH2>Look at the great things that already happened in your life</StyledH2>
+			<StyledH2>
+				Look at the great things <br />
+				that happened in your life
+			</StyledH2>
 		</>
 	);
 }
