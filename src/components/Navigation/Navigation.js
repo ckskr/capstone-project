@@ -46,6 +46,7 @@ const StyledLink = styled.a`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 200px;
 	gap: 5px;
 	color: ${({active}) => (active ? 'var(--turq)' : 'var(--salmon)')};
 	font-size: 10px;
