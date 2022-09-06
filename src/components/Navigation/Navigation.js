@@ -10,19 +10,19 @@ export default function Navigation() {
 		<StyledNavigation>
 			<Link href="./entry">
 				<StyledLink active={router.pathname === '/entry'}>
-					<SVG variant="pen" size="24px" />
+					<SVG variant="pen" />
 					Daily entry
 				</StyledLink>
 			</Link>
 			<Link href="./diary">
 				<StyledLink active={router.pathname === '/diary'}>
-					<SVG variant="diary" size="24px" />
+					<SVG variant="diary" />
 					My Diary
 				</StyledLink>
 			</Link>
 			<Link href="./breathwork">
 				<StyledLink active={router.pathname === '/breathwork'}>
-					<SVG variant="lotus" size="24px" />
+					<SVG variant="lotus" />
 					Breath deeply
 				</StyledLink>
 			</Link>

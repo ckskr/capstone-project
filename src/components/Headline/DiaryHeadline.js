@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import {pxToRem} from '../../utils/unit';
-
 const StyledH2 = styled.h2`
+	margin-right: 15px;
 	color: var(--turq);
-	font-size: ${pxToRem(30)};
+	font-size: 20px;
+	font-weight: 500;
 `;
 
 export default function DiaryHeadline() {

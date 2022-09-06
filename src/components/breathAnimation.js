@@ -17,7 +17,7 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 450px;
+	height: 350px;
 `;
 
 const breatheAnimation1 = keyframes`
@@ -31,7 +31,7 @@ const breatheAnimation1 = keyframes`
 	}
  100% { width: 70px;
  height: 70px;
- transform: rotate(20deg);
+ transform: rotate(10deg);
  opacity: 0.8;}
 `;
 
@@ -58,7 +58,7 @@ const breatheAnimation2 = keyframes`
  }
  100% {  width: 70px;
  height: 70px;
- transform: rotate(20deg);
+ transform: rotate(10deg);
  opacity: 0.4;}
 `;
 
@@ -85,7 +85,7 @@ const breatheAnimation3 = keyframes`
 	}
  100% { width: 70px;
  height: 70px;
- transform: rotate(20deg);
+ transform: rotate(10deg);
  opacity: 0.2;}
 `;
 const Circle3 = styled.div`

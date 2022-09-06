@@ -7,22 +7,29 @@ import SVG from '../components/svg';
 export default function BreathingExercise() {
 	return (
 		<>
-			<div>
+			<StyledDiv>
 				<StyledH1>
 					Take a moment for yourself <SVG variant="heart" size="10px" />
 				</StyledH1>
 
-				<StyledH2> </StyledH2>
+				<StyledOl>
+					<li>Exhale to a count of five. Hold your lungs empty for a five-count.</li>
+					<li>Inhale to a count of five.</li>
+					<li>Hold the air in your lungs for a count of five.</li>
+					<li>Exhale and begin the pattern anew.</li>
+				</StyledOl>
 				<BreatheAnimation />
-				<StyledH3>
-					Take some deep breaths in and some long exhales out – feels good, right?
-				</StyledH3>
-			</div>
+				<StyledH3>How do you feel now?</StyledH3>
+			</StyledDiv>
 
 			<Navigation />
 		</>
 	);
 }
+
+const StyledDiv = styled.div`
+	margin-bottom: 70px;
+`;
 
 const StyledH1 = styled.h1`
 	display: flex;
@@ -32,13 +39,18 @@ const StyledH1 = styled.h1`
 	font-weight: 200;
 `;
 
-const StyledH2 = styled.h2`
-	margin: 0;
+const StyledOl = styled.ol`
+	margin: 25px 0 0 0;
 	color: var(--salmon);
 	font-size: 15px;
+	font-weight: 400;
 `;
 
 const StyledH3 = styled.h3`
+	display: flex;
+	justify-content: center;
 	margin: 0;
 	color: var(--turq_light);
+	font-size: 15px;
+	font-weight: 400;
 `;

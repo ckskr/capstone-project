@@ -43,6 +43,23 @@ export const GlobalStyle = createGlobalStyle`
        url('/fonts/poppins-v20-latin-600.svg#Poppins') format('svg'); /* Legacy iOS */
 }
 
+
+@font-face {
+ font-family: 'Oooh Baby';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/OoohBaby-Regular.ttf'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/OoohBaby-Regular.ttf') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/OoohBaby-Regular.ttf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/OoohBaby-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/fonts/OoohBaby-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/OoohBaby-Regular.ttf') format('svg'); /* Legacy iOS */
+}
+
+
+
+
 	*,
 	*::before,
 	*::after {

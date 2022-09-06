@@ -12,6 +12,15 @@ const DynamicWrapper = dynamic(() => import('../styledWrapper'), {
 	ssr: false,
 });
 
+const falseMoods = {
+	happy: false,
+	proud: false,
+	calm: false,
+	unwell: false,
+	angry: false,
+	sad: false,
+};
+
 export default function Form() {
 	const addEntry = useStore(state => state.addEntry);
 	const [moods, setMoods] = useState({
@@ -65,7 +74,7 @@ export default function Form() {
 								required
 								checked={moods.happy}
 								onChange={() => {
-									setMoods({...moods, happy: !moods.happy});
+									setMoods({...falseMoods, happy: !moods.happy});
 								}}
 							/>
 							<StyledImage
@@ -89,7 +98,7 @@ export default function Form() {
 								required
 								checked={moods.proud}
 								onChange={() => {
-									setMoods({...moods, proud: !moods.proud});
+									setMoods({...falseMoods, proud: !moods.proud});
 								}}
 							/>
 							<StyledImage
@@ -112,7 +121,7 @@ export default function Form() {
 								required
 								checked={moods.calm}
 								onChange={() => {
-									setMoods({...moods, calm: !moods.calm});
+									setMoods({...falseMoods, calm: !moods.calm});
 								}}
 							/>
 							<StyledImage
@@ -135,7 +144,7 @@ export default function Form() {
 								required
 								checked={moods.unwell}
 								onChange={() => {
-									setMoods({...moods, unwell: !moods.unwell});
+									setMoods({...falseMoods, unwell: !moods.unwell});
 								}}
 							/>
 							<StyledImage
@@ -158,7 +167,7 @@ export default function Form() {
 								required
 								checked={moods.sad}
 								onChange={() => {
-									setMoods({...moods, sad: !moods.sad});
+									setMoods({...falseMoods, sad: !moods.sad});
 								}}
 							/>
 							<StyledImage
@@ -181,7 +190,7 @@ export default function Form() {
 								required
 								checked={moods.angry}
 								onChange={() => {
-									setMoods({...moods, angry: !moods.angry});
+									setMoods({...falseMoods, angry: !moods.angry});
 								}}
 							/>
 							<StyledImage
@@ -256,9 +265,9 @@ const StyledForm = styled.form`
 const StyledTextarea = styled.textarea`
 	display: flex;
 	flex-wrap: wrap;
-	width: 350px;
-	height: 100px;
-	margin: 30px 0;
+	width: 360px;
+	height: 80px;
+	margin: 10px 0;
 	padding: 10px;
 	border: 1px solid var(--rose);
 	border-radius: 5px;
@@ -281,7 +290,8 @@ const StyledRadioLabel = styled.label`
 `;
 
 const StyledImage = styled.img`
-	position: relative;
+	display: flex;
+	flex-direction: column;
 	margin-left: 40px;
 	border-radius: 50%;
 	background: ${({checked}) => (checked ? 'var(--rose)' : 'transparent')};

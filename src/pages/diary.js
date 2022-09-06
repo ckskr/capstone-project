@@ -28,7 +28,7 @@ export default function Diary() {
 						return (
 							<StyledCard key={entry.id}>
 								<StyledDate>{entry.date}</StyledDate>
-								<StyledFeeling>That is how you felt:</StyledFeeling>
+								<StyledH4>That is how you felt:</StyledH4>
 								<ul>
 									<StyledLi>{entry.mood}</StyledLi>
 								</ul>
@@ -47,7 +47,7 @@ export default function Diary() {
 										deleteEntry(entry.id);
 									}}
 								>
-									Delete entry
+									Delete
 								</StyledButton>
 							</StyledCard>
 						);
@@ -61,47 +61,42 @@ export default function Diary() {
 const StyledDiv = styled.div`
 	display: flex;
 	flex-direction: column-reverse;
-	padding: 10px;
-	gap: 10px;
 	padding-bottom: 100px;
 `;
+
 const StyledLi = styled.li`
-	display: flex;
-	flex-direction: column;
-	color: var(--turq_light);
+	list-style-type: circle;
+	color: var(--turq);
+	font-family: 'Oooh Baby', sans-serif;
+	font-size: 22px;
 `;
 const StyledCard = styled.section`
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	width: 93vw;
+	width: 95vw;
+	margin-bottom: 15px;
+	padding: 15px;
 	border: 1px solid var(--turq_light);
 	border-radius: 5px;
 `;
 const StyledH4 = styled.h4`
 	display: flex;
-	margin-left: 15px;
+	margin: 0;
 	color: var(--turq_light);
-`;
-const StyledFeeling = styled.h4`
-	display: flex;
-	margin-left: 15px;
-	color: var(--turq_light);
+	font-weight: 500;
 `;
 
 const StyledP = styled.p`
-	display: flex;
-	flex-direction: column;
-	margin-left: 15px;
-	color: var(--turq_light);
+	margin: 0;
+	color: var(--turq);
 
 	::before {
 		content: 'Special things happening today: ';
 		color: var(--turq_light);
-		font-weight: bold;
+		font-weight: 500;
 	}
 `;
-
 const StyledDate = styled.div`
 	position: absolute;
 	top: 5px;
@@ -109,7 +104,6 @@ const StyledDate = styled.div`
 	color: var(--turq_light);
 	font-size: 12px;
 `;
-
 const StyledH1 = styled.h1`
 	display: flex;
 	justify-content: center;
