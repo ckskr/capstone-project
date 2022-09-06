@@ -13,13 +13,17 @@ export default function BreathingExercise() {
 				</StyledH1>
 
 				<StyledOl>
-					<li>Exhale to a count of five. Hold your lungs empty for a five-count.</li>
-					<li>Inhale to a count of five.</li>
-					<li>Hold the air in your lungs for a count of five.</li>
-					<li>Exhale and begin the pattern anew.</li>
+					<li>
+						<StyledFirstLine>Breathe in</StyledFirstLine>
+						As you do that, imagine that the air is filled with a sense of peace and
+						calm. Try to feel it throughout your body
+					</li>
+					<li>
+						<StyledFirstLine>Breathe out</StyledFirstLine>While you are doing it,
+						imagine that the air leaves with your stress and tension
+					</li>
 				</StyledOl>
 				<BreatheAnimation />
-				<StyledH3>How do you feel now?</StyledH3>
 			</StyledDiv>
 
 			<Navigation />
@@ -43,14 +47,11 @@ const StyledOl = styled.ol`
 	margin: 25px 0 0 0;
 	color: var(--salmon);
 	font-size: 15px;
-	font-weight: 400;
+	font-weight: 300;
 `;
 
-const StyledH3 = styled.h3`
-	display: flex;
-	justify-content: center;
-	margin: 0;
-	color: var(--turq_light);
-	font-size: 15px;
+const StyledFirstLine = styled.div`
+	margin-top: 15px;
+	font-size: 18px;
 	font-weight: 400;
 `;

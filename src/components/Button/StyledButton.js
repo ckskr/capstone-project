@@ -25,7 +25,7 @@ const StyledButton = styled.button`
 		css`
 			color: var(--turq);
 			background-color: white;
-			box-shadow: var(--turq_light) 0px 1px 4px;
+			box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
 			width: 50px;
 			height: 25px;
 			order: -1;

@@ -46,7 +46,7 @@ export default function Form() {
 			first: firstEntry,
 			second: secondEntry,
 			third: thirdEntry,
-			mood: mood,
+			mood,
 			special: dailySpecial,
 		};
 
@@ -78,7 +78,6 @@ export default function Form() {
 								}}
 							/>
 							<StyledImage
-								type="radio"
 								src="/happy.png"
 								alt="happy"
 								width={30}
@@ -272,35 +271,34 @@ const StyledTextarea = styled.textarea`
 	border: 1px solid var(--rose);
 	border-radius: 5px;
 	color: var(--turq);
-	font-family: 'Poppins', sans-serif;
-	font-size: 15px;
+	font-family: 'Oooh Baby', sans-serif;
+	font-size: 20px;
 	font-weight: 300;
 `;
 const StyledLabel = styled.label`
 	display: none;
 `;
+
+const StyledDiv = styled.div`
+	margin: 5px;
+`;
 const StyledRadioLabel = styled.label`
 	display: flex;
 	flex-direction: column;
+	align-content: space-around;
 	width: 100px;
 	color: var(--turq);
 	font-size: 12px;
-	text-align: center;
 	cursor: pointer;
 `;
 
-const StyledImage = styled.img`
+export const StyledImage = styled.img`
 	display: flex;
 	flex-direction: column;
-	margin-left: 40px;
+	margin-left: 0;
 	border-radius: 50%;
 	background: ${({checked}) => (checked ? 'var(--rose)' : 'transparent')};
 	cursor: pointer;
-`;
-
-const StyledDiv = styled.div`
-	display: inline-block;
-	margin: 5px;
 `;
 
 const StyledInput = styled.input`
@@ -334,5 +332,10 @@ const StyledH3 = styled.h3`
 `;
 
 const StyledFieldset = styled.fieldset`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
 	border: none;
 `;

@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import StyledButton from '../components/Button/StyledButton';
+import {StyledImage} from '../components/Form/Form';
 import DiaryHeadline from '../components/Headline/DiaryHeadline';
 import Navigation from '../components/Navigation/Navigation';
 import SVG from '../components/svg';
@@ -28,18 +29,24 @@ export default function Diary() {
 						return (
 							<StyledCard key={entry.id}>
 								<StyledDate>{entry.date}</StyledDate>
-								<StyledH4>That is how you felt:</StyledH4>
-								<ul>
-									<StyledLi>{entry.mood}</StyledLi>
-								</ul>
-								<StyledH4>You were grateful for:</StyledH4>
-								<ul>
-									<StyledLi>{entry.first}</StyledLi>
-									<StyledLi>{entry.second}</StyledLi>
-									<StyledLi>{entry.third}</StyledLi>
-								</ul>
-								{entry.special ? <StyledP>{entry.special}</StyledP> : ''}
-
+								<StyledInputWrapper>
+									<StyledH4>
+										I felt <StyledWord>{entry.mood}</StyledWord> today{' '}
+										<StyledImage
+											src={`/${entry.mood}.png`}
+											alt={entry.mood}
+											width={24}
+											height={24}
+										/>
+									</StyledH4>
+									<StyledH4>I was grateful for:</StyledH4>
+									<StyledUl>
+										<StyledLi>{entry.first}</StyledLi>
+										<StyledLi>{entry.second}</StyledLi>
+										<StyledLi>{entry.third}</StyledLi>
+									</StyledUl>
+									{entry.special ? <StyledP>{entry.special}</StyledP> : ''}
+								</StyledInputWrapper>
 								<StyledButton
 									variant="delete"
 									type="button"
@@ -64,21 +71,40 @@ const StyledDiv = styled.div`
 	padding-bottom: 100px;
 `;
 
+const StyledInputWrapper = styled.div`
+	padding-top: 25px;
+`;
+
+const StyledUl = styled.ul`
+	padding-left: 20px; ;
+`;
+
+const StyledWord = styled.div`
+	margin: 0 10px 0 10px;
+	color: var(--turq);
+	font-family: 'Oooh Baby', sans-serif;
+	font-size: 20px;
+	text-decoration: none;
+`;
+
 const StyledLi = styled.li`
 	list-style-type: circle;
 	color: var(--turq);
 	font-family: 'Oooh Baby', sans-serif;
 	font-size: 22px;
+	text-align: left;
 `;
 const StyledCard = styled.section`
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	width: 95vw;
-	margin-bottom: 15px;
-	padding: 15px;
-	border: 1px solid var(--turq_light);
+	width: 99%;
+	margin-bottom: 30px;
+	padding: 20px;
 	border-radius: 5px;
+	overflow-wrap: break-word;
+	background: var(--neutral);
+	box-shadow: rgba(17, 17, 26, 0.05) 0 1px 0, rgba(17, 17, 26, 0.1) 0 0 8px;
 `;
 const StyledH4 = styled.h4`
 	display: flex;
@@ -88,21 +114,28 @@ const StyledH4 = styled.h4`
 `;
 
 const StyledP = styled.p`
-	margin: 0;
+	margin: 0 0 12px 0;
 	color: var(--turq);
+	font-family: 'Oooh Baby', sans-serif;
+	font-size: 22px;
 
 	::before {
 		content: 'Special things happening today: ';
 		color: var(--turq_light);
+		font-family: 'Poppins', sans-serif;
+		font-size: 1rem;
 		font-weight: 500;
+		text-underline-offset: 0.3em;
+		text-decoration: underline 2px solid var(--turq_light);
 	}
 `;
 const StyledDate = styled.div`
 	position: absolute;
-	top: 5px;
+	top: 15px;
 	right: 15px;
-	color: var(--turq_light);
-	font-size: 12px;
+	color: var(--turq);
+	font-family: 'Oooh Baby', sans-serif;
+	font-size: 15px;
 `;
 const StyledH1 = styled.h1`
 	display: flex;
