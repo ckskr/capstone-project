@@ -1,6 +1,11 @@
-import {render, screen} from '@testing-library/react';
+/**
+ * @jest-environment jsdom
+ */
 
-import BreatheAnimation from './BreatheAnimation';
+import {render, screen} from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+import BreatheAnimation from '../breathAnimation/breathAnimation';
 
 describe('BreatheAnimation', () => {
 	it('renders the BreatheAnimation component', () => {
