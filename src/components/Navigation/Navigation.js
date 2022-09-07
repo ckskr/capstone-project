@@ -23,7 +23,7 @@ export default function Navigation() {
 			<Link href="./breathwork">
 				<StyledLink active={router.pathname === '/breathwork'}>
 					<SVG variant="lotus" />
-					Breath deeply
+					Breathe deeply
 				</StyledLink>
 			</Link>
 		</StyledNavigation>
