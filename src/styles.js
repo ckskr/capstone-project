@@ -84,8 +84,8 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		height: calc(100vh - 60px);;
-		margin-bottom: 70px;
+		height: 100%;
+		margin-bottom: 20px;
 		padding:10px;
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
