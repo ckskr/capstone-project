@@ -38,13 +38,14 @@ export default function Diary() {
 											height={24}
 										/>
 									</StyledH4>
-									<br></br>
+									<br />
 									<StyledH4>I was grateful for:</StyledH4>
 									<StyledUl>
 										<StyledLi>{entry.first}</StyledLi>
 										<StyledLi>{entry.second}</StyledLi>
 										<StyledLi>{entry.third}</StyledLi>
 									</StyledUl>
+									<br />
 									{entry.special ? <StyledP>{entry.special}</StyledP> : ''}
 								</StyledInputWrapper>
 								<StyledButton
@@ -77,7 +78,7 @@ const StyledInputWrapper = styled.div`
 
 const StyledUl = styled.ul`
 	margin: 0;
-	padding: 0 0 20px 20px;
+	padding: 0 0 0 15px;
 `;
 
 const StyledWord = styled.div`
@@ -129,6 +130,7 @@ const StyledP = styled.p`
 	color: var(--turq);
 	font-family: 'Nothing You', sans-serif;
 	font-size: 18px;
+	white-space: wrap;
 
 	::before {
 		content: 'Special things happening today: ';

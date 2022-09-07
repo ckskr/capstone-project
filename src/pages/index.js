@@ -68,7 +68,7 @@ const StyledLink = styled.a`
 	margin: 10px;
 	border-radius: 5px;
 	background-color: var(--salmon);
-	box-shadow: rgba(17, 17, 26, 0.05) 0 1px 0, rgba(17, 17, 26, 0.1) 0 0 8px;
+	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 	color: var(--neutral);
 `;
 

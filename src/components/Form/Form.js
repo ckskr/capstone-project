@@ -42,7 +42,7 @@ export default function Form() {
 		event.target.reset();
 		const entry = {
 			id: nanoid(),
-			date: dayjs(timestamp).format('MMM D, YYYY h:mm A'),
+			date: dayjs(timestamp).format('MMM D, YYYY H:mm '),
 			first: firstEntry,
 			second: secondEntry,
 			third: thirdEntry,
@@ -233,7 +233,7 @@ export default function Form() {
 					id="thirdEntry"
 					name="thirdEntry"
 					aria-label="Form for GratitudeDiary"
-					placeholder="Think harder about a last thing that you are grateful for"
+					placeholder="Think harder about a last moment that you are grateful for"
 					required
 					minLength="3"
 					maxLength="200"

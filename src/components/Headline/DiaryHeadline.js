@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledH2 = styled.h2`
-	margin-right: 15px;
+	margin-bottom: 30px;
 	color: var(--turq);
 	font-size: 18px;
 	font-weight: 500;
