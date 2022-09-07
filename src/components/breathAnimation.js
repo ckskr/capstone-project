@@ -17,21 +17,21 @@ const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 450px;
+	height: 350px;
 `;
 
 const breatheAnimation1 = keyframes`
- 0% { width: 70px;
-	height: 70px;
+ 0% { width: 60px;
+	height: 60px;
 	opacity: 0.8; }
- 50% { width: 200px;
-	height: 200px;
+ 50% { width: 190px;
+	height: 190px;
 	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
 	opacity: 1;
 	}
- 100% { width: 70px;
- height: 70px;
- transform: rotate(20deg);
+ 100% { width: 60px;
+ height: 60px;
+ transform: rotate(10deg);
  opacity: 0.8;}
 `;
 
@@ -48,17 +48,17 @@ const Circle1 = styled.div`
 `;
 
 const breatheAnimation2 = keyframes`
- 0% {  width: 70px;
-	height: 70px;
+ 0% {  width: 60px;
+	height: 60px;
 	opacity: 0.4; }
- 50% { width: 260px;
-	height: 260px;
+ 50% { width: 250px;
+	height: 250px;
 	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
 	opacity: 0.5
  }
- 100% {  width: 70px;
- height: 70px;
- transform: rotate(20deg);
+ 100% {  width: 60px;
+ height: 60px;
+ transform: rotate(10deg);
  opacity: 0.4;}
 `;
 
@@ -75,16 +75,16 @@ const Circle2 = styled.div`
 `;
 
 const breatheAnimation3 = keyframes`
- 0% {  width: 70px;
-	height: 70px;
+ 0% {  width: 60px;
+	height: 60px;
 	opacity: 0.2; }
- 50% {  width: 300px;
-	height: 300px;
+ 50% {  width: 290px;
+	height: 290px;
 	border-radius:  80% 60% 70% 60%  / 70% 60% 70% 60%;
 	opacity: 0.3;
 	}
- 100% { width: 70px;
- height: 70px;
+ 100% { width: 60px;
+ height: 60px;
  transform: rotate(20deg);
  opacity: 0.2;}
 `;

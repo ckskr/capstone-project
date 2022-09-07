@@ -2,37 +2,56 @@ import styled from 'styled-components';
 
 import BreatheAnimation from '../components/breathAnimation';
 import Navigation from '../components/Navigation/Navigation';
+import SVG from '../components/svg';
 
 export default function BreathingExercise() {
 	return (
 		<>
-			<div>
-				<StyledH1>Are you stressed?</StyledH1>
-				<StyledH2>Take a moment and focus on yourself </StyledH2>
+			<StyledDiv>
+				<StyledH1>
+					Take a moment for yourself <SVG variant="heart" size="10px" />
+				</StyledH1>
+
+				<StyledOl>
+					<li>
+						<StyledFirstLine>Breathe in</StyledFirstLine>
+						As you do that, imagine that the air is filled with a sense of peace and
+						calm. Try to feel it throughout your body
+					</li>
+					<li>
+						<StyledFirstLine>Breathe out</StyledFirstLine>While you are doing it,
+						imagine that the air leaves with your stress and tension
+					</li>
+				</StyledOl>
 				<BreatheAnimation />
-				<StyledH3>
-					Take some deep breaths in and some long exhales out – feels good, right?
-				</StyledH3>
-			</div>
+			</StyledDiv>
 
 			<Navigation />
 		</>
 	);
 }
 
-const StyledH1 = styled.h1`
-	margin: 0;
-	color: var(--salmon);
-	font-size: 25px;
+const StyledDiv = styled.div`
+	margin-bottom: 70px;
 `;
 
-const StyledH2 = styled.h2`
-	margin: 0;
+const StyledH1 = styled.h1`
+	display: flex;
+	justify-content: center;
+	color: var(--turq);
+	font-size: 15px;
+	font-weight: 200;
+`;
+
+const StyledOl = styled.ol`
+	margin: 25px 0 0 0;
 	color: var(--salmon);
 	font-size: 15px;
+	font-weight: 300;
 `;
 
-const StyledH3 = styled.h3`
-	margin: 0;
-	color: var(--turq_light);
+const StyledFirstLine = styled.div`
+	margin-top: 15px;
+	font-size: 18px;
+	font-weight: 400;
 `;

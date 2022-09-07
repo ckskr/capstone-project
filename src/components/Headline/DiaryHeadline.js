@@ -1,22 +1,20 @@
 import styled from 'styled-components';
 
-import {pxToRem} from '../../utils/unit';
-
 const StyledH2 = styled.h2`
+	margin-bottom: 30px;
 	color: var(--turq);
-	font-size: ${pxToRem(30)};
-`;
-
-const StyledP = styled.p`
-	color: var(--turq);
-	font-size: ${pxToRem(20)};
+	font-size: 18px;
+	font-weight: 500;
+	text-align: center;
 `;
 
 export default function DiaryHeadline() {
 	return (
 		<>
-			<StyledP>Your diary</StyledP>
-			<StyledH2>Look at the great things that already happened in your life</StyledH2>
+			<StyledH2>
+				Look at the great things <br />
+				that happened in your life
+			</StyledH2>
 		</>
 	);
 }

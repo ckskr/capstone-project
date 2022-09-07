@@ -43,6 +43,35 @@ export const GlobalStyle = createGlobalStyle`
        url('/fonts/poppins-v20-latin-600.svg#Poppins') format('svg'); /* Legacy iOS */
 }
 
+
+@font-face {
+ font-family: 'Oooh Baby';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/OoohBaby-Regular.ttf'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/OoohBaby-Regular.ttf') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/OoohBaby-Regular.ttf') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/OoohBaby-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/fonts/OoohBaby-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/OoohBaby-Regular.ttf') format('svg'); /* Legacy iOS */
+}
+
+
+@font-face {
+ font-family: 'Nothing You';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/fonts/NothingYouCouldDo-Regular'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/NothingYouCouldDo-Regular') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/NothingYouCouldDo-Regular') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('woff'), /* Modern Browsers */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/NothingYouCouldDo-Regular.ttf') format('svg'); /* Legacy iOS */
+}
+
+
 	*,
 	*::before,
 	*::after {
@@ -55,18 +84,15 @@ export const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-		height: 100vh;
-		margin: 0;
-		padding: 10px;
-		padding-bottom:100px;
+		height: 100%;
+		margin-bottom: 20px;
+		padding:10px;
 		font-family: 'Poppins', sans-serif;
 		font-size: 1rem;
 		font-style: "normal";
 
 	}
-	main {
-		padding-bottom:100px;
-	}
+
 
 :root {
 --turq: #006D77;
