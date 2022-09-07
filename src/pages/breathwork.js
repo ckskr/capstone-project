@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import BreatheAnimation from '../components/breathAnimation';
+import BreatheAnimation from '../components/breathAnimation/breathAnimation';
 import Navigation from '../components/Navigation/Navigation';
 import SVG from '../components/svg';
 

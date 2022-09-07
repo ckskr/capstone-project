@@ -6,8 +6,8 @@ export default function BreatheAnimation() {
 			<Circle1 />
 			<Circle2 />
 			<Circle3 />
-			<StyledSpanIn>Breath in</StyledSpanIn>
-			<StyledSpanOut>Breath out</StyledSpanOut>
+			<StyledSpanIn>Breathe in</StyledSpanIn>
+			<StyledSpanOut>Breathe out</StyledSpanOut>
 		</Container>
 	);
 }
