@@ -8,8 +8,8 @@ const StyledButton = styled.button`
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
-	${({variant = 'default'}) =>
-		variant === 'default' &&
+	${({variant = 'add'}) =>
+		variant === 'add' &&
 		css`
 			color: var(--neutral);
 			background-color: var(--salmon);
